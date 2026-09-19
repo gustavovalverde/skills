@@ -1,0 +1,31 @@
+{
+  "name": "skills",
+  "version": "0.1.0",
+  "description": "Write useful documentation, reviewer-focused change descriptions, clear prose, and interface copy.",
+  "author": {
+    "name": "gustavovalverde"
+  },
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "documentation",
+    "pull-requests",
+    "plain-language"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Gustavo\u2019s Skills",
+    "shortDescription": "Clear docs, change descriptions, and prose.",
+    "longDescription": "Independent writing skills that adapt to the reader and artifact without a personal configuration dependency.",
+    "developerName": "gustavovalverde",
+    "category": "Productivity",
+    "capabilities": [
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Write a task-focused documentation page.",
+      "Draft a reviewer-focused PR description.",
+      "Review this draft for clarity."
+    ]
+  }
+}

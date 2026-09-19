@@ -1,0 +1,16 @@
+{
+  "name": "skills",
+  "version": "0.1.0",
+  "description": "Write useful documentation, reviewer-focused change descriptions, clear prose, and interface copy.",
+  "author": {
+    "name": "gustavovalverde"
+  },
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "documentation",
+    "pull-requests",
+    "plain-language"
+  ],
+  "skills": "./skills/"
+}

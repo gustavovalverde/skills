@@ -1,0 +1,16 @@
+{
+  "name": "gustavovalverde-skills",
+  "owner": {
+    "name": "gustavovalverde"
+  },
+  "plugins": [
+    {
+      "name": "skills",
+      "source": "./",
+      "description": "Write useful documentation, reviewer-focused change descriptions, and clear prose."
+    }
+  ],
+  "metadata": {
+    "description": "Focused skills for clear writing and maintainable repository work."
+  }
+}

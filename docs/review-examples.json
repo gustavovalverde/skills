@@ -1,0 +1,124 @@
+[
+  {
+    "id": "pr_small",
+    "request": "Write the PR title and body. Repository titles use Conventional Commits.",
+    "facts": "Implemented change: failed CSV exports previously remained in the failed state when Retry was selected. The retry handler now clears the failure state before scheduling another export. Export format and public API are unchanged. src/exports/retry.ts contains the change. A focused regression test passes. No PR template. This is a small fix.",
+    "expected_skills": [
+      "write-pr"
+    ]
+  },
+  {
+    "id": "pr_large",
+    "request": "Write the PR title and description for maintainers. Repository titles use Conventional Commits.",
+    "facts": "Implemented change: imported customer records previously belonged to a workspace, so imports from separate connectors could collide. Records now belong to a connector, and reads and updates check connector ownership. src/imports/store.ts defines lookup ownership; src/imports/runner.ts applies updates; migrations/042_connector_owner.sql changes the schema. The migration discards the old shared lookup index and cannot be reversed in place. Recovery requires restoring a pre-migration database backup. Review should focus on ownership enforcement and update ordering. This PR depends on #81, which adds stable connector IDs; #81 must land first. Existing installations must stop imports during migration and resume afterward. Tests cover two connectors using the same external ID. Production migration duration has not been measured. Internal planning label was Phase 2, but it has no operational meaning.",
+    "expected_skills": [
+      "write-pr"
+    ]
+  },
+  {
+    "id": "release_note",
+    "request": "Write a user-facing changeset sentence or short paragraph.",
+    "facts": "Implemented change: failed CSV exports previously remained in the failed state when Retry was selected. The retry handler now clears the failure state before scheduling another export. Export format and public API are unchanged.",
+    "expected_skills": [
+      "write-pr"
+    ]
+  },
+  {
+    "id": "howto",
+    "request": "Write a short how-to documentation page for experienced administrators rotating a service token without interrupting requests.",
+    "facts": "Synthetic product fixture: administrator access is required. The Tokens page supports multiple active tokens. Create token generates a token shown once. Services read SERVICE_TOKEN on deployment. GET /health/auth returns 200 only when that deployed service credential is valid. Deployments can be rolled back while the old token remains active. Revoke token immediately invalidates the selected token. Each service using the old token must be updated and checked before revocation. No test environment is supplied; use only these documented facts.",
+    "expected_skills": [
+      "write-docs"
+    ]
+  },
+  {
+    "id": "reference",
+    "request": "Write the configuration reference entry for retry_limit.",
+    "facts": "Synthetic specification: retry_limit is an integer from 0 through 8. Default when omitted: 3. It counts retries after the initial request, so 3 allows up to 4 attempts. 0 disables retries. Invalid values reject configuration during startup. Only temporary transport errors are retried; validation errors are not retried. Interaction: timeout_ms applies separately to each attempt. No total elapsed-time guarantee is specified.",
+    "expected_skills": [
+      "write-docs"
+    ]
+  },
+  {
+    "id": "explanation",
+    "request": "Write a short documentation explanation of why retries can duplicate operations.",
+    "facts": "An API server may complete a requested operation before its response reaches the client. If that response is lost, the client sees a timeout without knowing whether the operation completed. Submitting the operation again may execute it twice. In this product, create-order accepts an idempotency key. Reusing the same key with the same request body within 24 hours returns the stored result without executing again. Reusing the key with a different body returns an error. Deduplication after 24 hours is not guaranteed. Do not invent any other guarantees.",
+    "expected_skills": [
+      "write-docs"
+    ]
+  },
+  {
+    "id": "adr",
+    "request": "Draft an ADR suitable for a Notion knowledge base.",
+    "facts": "Status: Proposed, not approved. Proposal: queue large CSV exports instead of running them in the request handler. Observed current problem: large exports can exceed the request timeout. The proposed queue allows the request to return a job ID; users retrieve the file after completion. Tradeoffs: worker infrastructure and visible pending/failed states are needed, and users no longer receive the file immediately. Alternative considered: raise the request timeout; this postpones the problem as data grows. Unknown: worker capacity and operating cost have not been measured. No implementation or launch date exists.",
+    "expected_skills": [
+      "write-docs"
+    ]
+  },
+  {
+    "id": "tutorial",
+    "request": "Write a beginner tutorial for creating and querying a first collection.",
+    "facts": "Synthetic CLI fixture: the note CLI must already be installed. note new garden creates an empty local collection named garden and prints Created garden. note add garden \"Water seedlings\" adds one note and prints Added note 1. note list garden prints 1: Water seedlings. Commands do not require network access or an account. Each command uses the collection name explicitly. No other commands are documented. No runnable note binary is supplied.",
+    "expected_skills": [
+      "write-docs"
+    ]
+  },
+  {
+    "id": "editorial",
+    "request": "Review this substantial draft for clarity and provide a tighter version without changing its meaning.",
+    "facts": "Draft: The system has an operation mechanism which is responsible for the process of retrying requests. It is necessary to understand that the response not having arrived does not prove that the operation did not occur. We have established, under section 4 of the supplied specification, that an idempotency key prevents another execution for 24 hours when the body is unchanged. We have not established what happens after 24 hours. The documentation is for application developers. The project has no special punctuation convention.",
+    "expected_skills": [
+      "edit-prose"
+    ]
+  },
+  {
+    "id": "chat",
+    "request": "What have you found so far? Give me a quick status update.",
+    "facts": "",
+    "expected_skills": []
+  },
+  {
+    "id": "translation",
+    "request": "Translate \"Your changes have been saved\" into Spanish.",
+    "facts": "",
+    "expected_skills": []
+  },
+  {
+    "id": "mechanical",
+    "request": "Correct the spelling of instalation in this README.",
+    "facts": "No other changes requested.",
+    "expected_skills": []
+  },
+  {
+    "id": "ui",
+    "request": "Write a label for a button that downloads an invoice.",
+    "facts": "The button downloads the selected invoice as a PDF.",
+    "expected_skills": [
+      "write-ui-copy"
+    ]
+  },
+  {
+    "id": "docs_named_in_pr",
+    "request": "Draft a PR description for a correction to the API reference.",
+    "facts": "The timeout default in docs was 10 seconds; the implementation and revised reference both specify 30 seconds.",
+    "expected_skills": [
+      "write-pr"
+    ]
+  },
+  {
+    "id": "ui_unknown_outcome",
+    "request": "Write a payment timeout message.",
+    "facts": "The client timed out. Payment completion is unknown. The user can check transaction history. Safe retry is not established.",
+    "expected_skills": [
+      "write-ui-copy"
+    ]
+  },
+  {
+    "id": "slide_copy",
+    "request": "Write a slide title and caption for this pilot result.",
+    "facts": "20 participants; median setup time fell from 10 to 7 minutes. No control group.",
+    "expected_skills": [
+      "write-docs"
+    ]
+  }
+]
