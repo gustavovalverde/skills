@@ -31,3 +31,9 @@ Reject that translation if outages are among the caught errors: unavailable stor
 An account workflow writes a record and sends a welcome email. Combining these calls in one service can simplify the caller, but cannot make the database and mail provider commit atomically.
 
 Specify what success means and what happens if email delivery fails after the record is saved. Retain the existing failure contract during a structural refactor. If durable delivery is required, assess an appropriate delivery mechanism separately rather than silently adding retries or promising atomicity.
+
+## Design one complete operation before a framework
+
+A new report feature must let an administrator request an export and later download it. First sketch the request and observable pending, completed, and failed outcomes. Then decide who owns authorization, job state, file retention, and failures after scheduling. Use those decisions to place the behavior within existing modules and choose names that match the product.
+
+A first slice can connect one supported report request to a retrievable result with authorization and failure handling. A generic workflow engine or registry requires evidence that the current task benefits from it. Keep uncertain capacity requirements visible rather than inventing guarantees. If the task is only an assessment, propose the slice without implementing it.

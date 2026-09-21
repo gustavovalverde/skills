@@ -1,6 +1,6 @@
 # Alternative installation methods
 
-Use a native plugin to install all four skills together. For individual skills, use the installer in the [README](../README.md#install). Choose one route to avoid duplicates.
+Use a native plugin to install the packaged skills together. For individual skills, use the installer in the [README](../README.md#install). Choose one route to avoid duplicates.
 
 Use an existing checkout for the commands below. Replace `/path/to/skills` with its absolute path.
 
@@ -44,8 +44,8 @@ Run inside a Claude Code session:
 /plugin install skills@gustavovalverde-skills
 ```
 
-Start a fresh session and invoke `/skills:write-docs`, `/skills:write-pr`, `/skills:edit-prose`, or `/skills:write-ui-copy`.
+Start a fresh session and invoke a skill, such as `/skills:software-design` or `/skills:write-docs`. See the [README](../README.md#try-a-skill) for the full selection.
 
 ## Check the result
 
-Check that all four skills appear, then try an example from the [README](../README.md#try-a-skill). If skills appear twice, remove one installation route.
+Check that the packaged skills appear, then try an example from the [README](../README.md#try-a-skill). If skills appear twice, remove one installation route.

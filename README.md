@@ -18,11 +18,13 @@ Select a skill in your agent and describe the task:
 
 | Skill | Example request |
 |---|---|
-| [architecture-principles](skills/architecture-principles/SKILL.md) | “Review these module boundaries. Identify concrete costs and the smallest useful improvements.” |
+| [software-design](skills/software-design/SKILL.md) | “Plan this feature from common usage through ownership and module boundaries. Identify the first useful implementation slice.” |
 | [write-docs](skills/write-docs/SKILL.md) | “Write a setup guide with prerequisites, a working example, and expected results.” |
 | [write-pr](skills/write-pr/SKILL.md) | “Write the PR description from this diff. Explain the behavior change and review risks.” |
 | [write-ui-copy](skills/write-ui-copy/SKILL.md) | “Review this screen's labels and errors. Remove hints that repeat the controls.” |
 | [edit-prose](skills/edit-prose/SKILL.md) | “Make this draft easier to follow while preserving its evidence and caveats.” |
+
+Use `software-design` for design decisions that span several concerns. Use a focused engineering skill directly for an API, placement, or naming question. Each works independently; selecting one does not require loading the others.
 
 Agents can also select a skill when the task fits. Ordinary replies and small wording edits do not need a writing workflow.
 

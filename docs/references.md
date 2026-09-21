@@ -44,6 +44,8 @@ Sources for the skills' writing guidance and installation instructions. Choose r
 - [John Ousterhout: A Philosophy of Software Design](https://web.stanford.edu/~ouster/cgi-bin/book.php) discusses managing complexity through module design and information hiding. The author's page identifies the book; consult the relevant edition before attributing an exact passage.
 - [Tim Peters: The Zen of Python, PEP 20](https://peps.python.org/pep-0020/) offers Python design aphorisms about simplicity, readability, and explicit behavior. Apply them with language and framework context, not as a language-independent ban on nesting or implicit conventions.
 
+- [Matt Pocock: codebase design](https://github.com/mattpocock/skills/blob/main/skills/engineering/codebase-design/SKILL.md) connects caller effort, locality of change, and testability through module interfaces. These are useful design questions; its fixed vocabulary and adapter-count rules are not requirements here.
+
 ## Installation
 
 - [Skills CLI](https://github.com/vercel-labs/skills): installation from repositories and local directories.
