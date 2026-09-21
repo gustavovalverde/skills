@@ -59,6 +59,15 @@ Sources for the skills' writing guidance and installation instructions. Choose r
 - [Next.js: project structure](https://nextjs.org/docs/app/getting-started/project-structure) explains App Router conventions, colocation, private folders, and route groups. Apply these only to compatible Next.js projects; directory choices remain project-specific, and other routers differ.
 - [webpack: tree shaking](https://webpack.js.org/guides/tree-shaking/) explains export usage and side-effect handling in webpack. Re-export behavior depends on the module graph and build configuration; it does not support a universal ban on barrels or a guarantee that splitting files reduces bundles.
 
+## Identifier naming
+
+- [Google TypeScript style guide: identifiers](https://google.github.io/styleguide/tsguide.html#identifiers) gives naming conventions for Google's TypeScript code. Use it as a language-specific reference, not authority to rewrite other projects' interface prefixes, constants, or acronyms.
+- [Python PEP 8: naming conventions](https://peps.python.org/pep-0008/#naming-conventions) supplies Python-specific guidance and emphasizes compatibility and consistency with surrounding code. Its casing rules differ from TypeScript conventions.
+- [React: custom hook names](https://react.dev/learn/reusing-logic-with-custom-hooks#hook-names-always-start-with-use) explains why hook names communicate framework-specific calling constraints. This applies to React hooks, not every function in every language.
+- [Martin Fowler: ubiquitous language](https://martinfowler.com/bliki/UbiquitousLanguage.html) describes shared vocabulary connecting domain understanding and software. Apply the relevant bounded context's meaning rather than forcing one term across unrelated domains.
+- [Martin Fowler: command–query separation](https://martinfowler.com/bliki/CommandQuerySeparation.html) distinguishes observation from state change and discusses practical exceptions. It does not require splitting an atomic mutation that returns a useful result.
+- [Artem Zakirullin: Cognitive load is what matters](https://github.com/zakirullin/cognitive-load) offers practitioner examples of reducing the effort of interpreting code. Treat these as qualitative design arguments, not proof of fixed naming lengths, memory limits, or agent-search performance.
+
 ## Installation
 
 - [Skills CLI](https://github.com/vercel-labs/skills): installation from repositories and local directories.

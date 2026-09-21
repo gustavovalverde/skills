@@ -188,5 +188,21 @@
     "expected_skills": [
       "codebase-structure"
     ]
+  },
+  {
+    "id": "naming_atomic",
+    "request": "Suggest a clearer name for getSequence.",
+    "facts": "The function atomically increments a durable sequence and returns the allocated value. This is a naming task, with no behavior changes requested.",
+    "expected_skills": [
+      "identifier-naming"
+    ]
+  },
+  {
+    "id": "naming_wire",
+    "request": "Rename this internal duration variable for clarity.",
+    "facts": "The variable timeout is milliseconds. A public request uses a serialized key also named timeout. That wire field must remain unchanged.",
+    "expected_skills": [
+      "identifier-naming"
+    ]
   }
 ]
