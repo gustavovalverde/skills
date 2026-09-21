@@ -1,5 +1,5 @@
 ---
-name: write-pr
+name: pr-writing
 description: Draft or revise pull request titles and descriptions from the change and its evidence. Also supports commit messages and release notes.
 license: MIT
 ---

@@ -44,7 +44,7 @@ Run inside a Claude Code session:
 /plugin install skills@gustavovalverde-skills
 ```
 
-Start a fresh session and invoke a skill, such as `/skills:software-design` or `/skills:write-docs`. See the [README](../README.md#try-a-skill) for the full selection.
+Start a fresh session and invoke a skill, such as `/skills:software-design` or `/skills:docs-writing`. See the [README](../README.md#try-a-skill) for the full selection.
 
 ## Check the result
 

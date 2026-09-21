@@ -1,5 +1,5 @@
 ---
-name: write-ui-copy
+name: ui-copy
 description: Write or review interface labels, actions, states, and recovery messages against actual product behavior and screen context.
 license: MIT
 ---

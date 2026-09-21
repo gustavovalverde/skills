@@ -1,10 +1,10 @@
 ---
-name: edit-prose
-description: Review or revise existing prose for clarity, organization, and audience fit while preserving its meaning and evidence.
+name: text-editing
+description: Review or revise existing prose for clarity, organization, readability, and audience fit while preserving meaning and evidence. Use for requested editorial work, not ordinary replies, translations, or mechanical corrections.
 license: MIT
 ---
 
-# Edit prose
+# Edit text
 
 Preserve the requested scope: a review needs actionable findings; a rewrite needs usable revised text. Infer the audience and purpose from the draft and request. Ask only when an unresolved distinction would materially affect the result.
 
