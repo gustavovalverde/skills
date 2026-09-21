@@ -120,5 +120,41 @@
     "expected_skills": [
       "write-docs"
     ]
+  },
+  {
+    "id": "design_new_feature",
+    "request": "Plan a report export feature before implementation.",
+    "facts": "Administrators request an export and retrieve it later. Authorization and pending, completed, and failed states matter. No generic workflow engine requirement exists.",
+    "expected_skills": [
+      "software-design"
+    ]
+  },
+  {
+    "id": "design_settled_plan",
+    "request": "Apply this approved local refactor without changing its design.",
+    "facts": "Extract a pure calculation into the agreed private helper in the same file. Callers and behavior stay unchanged; no naming or placement decision remains open.",
+    "expected_skills": []
+  },
+  {
+    "id": "architecture_boundary",
+    "request": "Assess whether these module boundaries need changing.",
+    "facts": "A domain service depends on one HTTP-backed interface. Tests provide a fake. The interface isolates provider response formats. A proposed simplification removes the interface solely because only one production implementation exists.",
+    "expected_skills": [
+      "software-design"
+    ]
+  },
+  {
+    "id": "architecture_error_contract",
+    "request": "Review the architectural consequences of this repository refactor.",
+    "facts": "The repository previously returned null for absent records and threw transport errors. It now catches all failures and returns null. The caller creates a record on null.",
+    "expected_skills": [
+      "software-design"
+    ]
+  },
+  {
+    "id": "routine_code_edit",
+    "request": "Correct the spelling of a comment in this function.",
+    "facts": "No behavior or structure changes requested.",
+    "expected_skills": []
   }
 ]
