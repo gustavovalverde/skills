@@ -10,7 +10,7 @@ Identify the placement or navigation problem before changing the tree. Read the 
 
 Keep related behavior near its owner when that makes a task easier to follow. Separate responsibilities when a boundary protects runtime constraints, resource ownership, independent consumers, or independently changing policy. History can support a change-coupling claim, but new code and squashed history still permit decisions based on requirements and dependencies.
 
-Compare extending, splitting, moving, and leaving the structure unchanged. File length, matching prefixes, and directory counts are signals to inspect, not rules that mandate a split or merge. Explain what readers or consumers gain and what coordination the change adds.
+Compare extending, splitting, moving, and leaving the structure unchanged. File length, matching prefixes, and directory counts are signals to inspect, not rules that mandate a split or merge. Explain what readers or consumers gain and what coordination the change adds. Before recommending a move, name the concrete change or lookup it helps and compare it with keeping the current layout. Shared fields and invariants may make apparent concerns one cohesive unit; label navigation preferences as optional, not demonstrated maintenance defects.
 
 Preserve client/server, worker, security, initialization, and package boundaries. A directory with one file can represent a useful boundary. A barrel can provide a supported public entrypoint. Establish actual dependency or bundling effects before claiming that a layout improves performance.
 
