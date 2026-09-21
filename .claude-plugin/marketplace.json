@@ -7,7 +7,7 @@
     {
       "name": "skills",
       "source": "./",
-      "description": "Write useful documentation, reviewer-focused change descriptions, and clear prose."
+      "description": "Assess architecture tradeoffs and write clear documentation, change descriptions, prose, and interface copy."
     }
   ],
   "metadata": {

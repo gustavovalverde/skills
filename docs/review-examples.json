@@ -120,5 +120,27 @@
     "expected_skills": [
       "write-docs"
     ]
+  },
+  {
+    "id": "architecture_boundary",
+    "request": "Assess whether these module boundaries need changing.",
+    "facts": "A domain service depends on one HTTP-backed interface. Tests provide a fake. The interface isolates provider response formats. A proposed simplification removes the interface solely because only one production implementation exists.",
+    "expected_skills": [
+      "architecture-principles"
+    ]
+  },
+  {
+    "id": "architecture_error_contract",
+    "request": "Review the architectural consequences of this repository refactor.",
+    "facts": "The repository previously returned null for absent records and threw transport errors. It now catches all failures and returns null. The caller creates a record on null.",
+    "expected_skills": [
+      "architecture-principles"
+    ]
+  },
+  {
+    "id": "routine_code_edit",
+    "request": "Correct the spelling of a comment in this function.",
+    "facts": "No behavior or structure changes requested.",
+    "expected_skills": []
   }
 ]

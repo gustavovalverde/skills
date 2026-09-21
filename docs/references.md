@@ -36,6 +36,14 @@ Sources for the skills' writing guidance and installation instructions. Choose r
 - [Matt Pocock: writing documentation](https://github.com/mattpocock/skills/blob/main/.agents/writing-docs.md): explain when a skill is useful and how readers can recognize its result.
 - [Matt Pocock: wait-what](https://github.com/mattpocock/skills/blob/main/skills/productivity/wait-what/SKILL.md): restore missing context when an explanation does not land. Requesting simplified English does not establish STE compliance.
 
+## Architecture and software design
+
+- [Martin Fowler: YAGNI](https://martinfowler.com/bliki/Yagni.html) distinguishes speculative capabilities from work that keeps software easy to change. It supports evaluating the cost of carrying unused flexibility, not banning single-implementation interfaces.
+- [Robert C. Martin: the single responsibility principle](https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html) explains cohesion through reasons and actors that drive change. It does not establish a method-count limit.
+- [Barbara Liskov and Jeannette Wing: A Behavioral Notion of Subtyping](https://www.cs.cmu.edu/~wing/publications/LiskovWing94.pdf) grounds substitutability in behavioral specifications and preserved properties. Type signatures or the presence of a type check alone cannot settle the question.
+- [John Ousterhout: A Philosophy of Software Design](https://web.stanford.edu/~ouster/cgi-bin/book.php) discusses managing complexity through module design and information hiding. The author's page identifies the book; consult the relevant edition before attributing an exact passage.
+- [Tim Peters: The Zen of Python, PEP 20](https://peps.python.org/pep-0020/) offers Python design aphorisms about simplicity, readability, and explicit behavior. Apply them with language and framework context, not as a language-independent ban on nesting or implicit conventions.
+
 ## Installation
 
 - [Skills CLI](https://github.com/vercel-labs/skills): installation from repositories and local directories.

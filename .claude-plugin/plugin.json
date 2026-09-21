@@ -1,7 +1,7 @@
 {
   "name": "skills",
   "version": "0.1.0",
-  "description": "Write useful documentation, reviewer-focused change descriptions, clear prose, and interface copy.",
+  "description": "Assess architecture tradeoffs and write clear documentation, change descriptions, prose, and interface copy.",
   "author": {
     "name": "gustavovalverde"
   },
@@ -10,7 +10,8 @@
     "writing",
     "documentation",
     "pull-requests",
-    "plain-language"
+    "plain-language",
+    "architecture"
   ],
   "skills": "./skills/"
 }

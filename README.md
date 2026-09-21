@@ -1,6 +1,6 @@
 # Skills
 
-Agent skills for clear documentation, pull requests, interface copy, and prose editing. Install with [skills](https://github.com/vercel-labs/skills) for Cursor, Codex, Claude Code, and other supported agents.
+Agent skills for architecture decisions, clear documentation, pull requests, interface copy, and prose editing. Install with [skills](https://github.com/vercel-labs/skills) for Cursor, Codex, Claude Code, and other supported agents.
 
 ## Install
 
@@ -18,6 +18,7 @@ Select a skill in your agent and describe the task:
 
 | Skill | Example request |
 |---|---|
+| [architecture-principles](skills/architecture-principles/SKILL.md) | “Review these module boundaries. Identify concrete costs and the smallest useful improvements.” |
 | [write-docs](skills/write-docs/SKILL.md) | “Write a setup guide with prerequisites, a working example, and expected results.” |
 | [write-pr](skills/write-pr/SKILL.md) | “Write the PR description from this diff. Explain the behavior change and review risks.” |
 | [write-ui-copy](skills/write-ui-copy/SKILL.md) | “Review this screen's labels and errors. Remove hints that repeat the controls.” |
