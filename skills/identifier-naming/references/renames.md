@@ -19,6 +19,8 @@ Avoid names that suggest guarantees the implementation lacks. `ensure` does not 
 
 Determine whether the name is consumed outside the edited code: public exports, reflection, dependency injection, serialization, schemas, URLs, CLI flags, environment variables, metrics, event names, selectors, and generated clients can all be contracts.
 
+Follow re-export chains from the declaration to supported package or crate entrypoints. Declaration location and serialization alone do not establish visibility. For example, Rust `pub use private_module::State` exposes `State` as a public Rust name even if it is never serialized.
+
 An internal binding can change while a wire key stays fixed through an explicit mapping. Public names may require an alias, deprecation path, migration, or versioned change. Keep names that genuinely distinguish supported versions or concrete adapters. Do not delete an older API simply to remove a temporal adjective.
 
 Use the target language's conventions for interfaces, async methods, constants, and acronyms. Framework-enforced forms take precedence over stylistic preferences; for example, React hook naming conveys restrictions on how the function may be called. A conventional `Service`, `Handler`, or `Manager` suffix can be accurate when its role is clear.

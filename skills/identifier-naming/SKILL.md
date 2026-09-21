@@ -14,7 +14,7 @@ Keep cardinality, units, boolean meaning, and failure expectations accurate. Ver
 
 Naming difficulty can reveal an unclear responsibility, but does not by itself justify extraction, inlining, or redesign. A name for a one-line expression can explain an important concept. An operation can legitimately return a result while mutating state, especially when splitting it would lose atomicity.
 
-Before renaming, distinguish internal bindings from supported public names, serialized keys, URLs, configuration, and names consumed by tools. Preserve those contracts unless changing them is part of the task. Legitimate version names, adapter names, and compatibility names may need to remain. Use [rename checks](references/renames.md) when propagating a change beyond a local binding.
+Before renaming, distinguish internal bindings from supported public names, serialized keys, URLs, configuration, and names consumed by tools. Trace re-exports and package entrypoints before calling a symbol internal: a private module can expose a public name, even when no wire format uses it. Preserve those contracts unless changing them is part of the task. Legitimate version names, adapter names, and compatibility names may need to remain. Use [rename checks](references/renames.md) when propagating a change beyond a local binding.
 
 Recommend a name with the behavioral distinction it clarifies. If several names are reasonable, prefer the one consistent with nearby usage; avoid broad synonym churn or a mandatory naming report. Check affected consumers and relevant string references after editing.
 
