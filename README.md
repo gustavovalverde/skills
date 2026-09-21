@@ -20,6 +20,7 @@ Select a skill in your agent and describe the task:
 |---|---|
 | [software-design](skills/software-design/SKILL.md) | “Plan this feature from common usage through ownership and module boundaries. Identify the first useful implementation slice.” |
 | [public-api-design](skills/public-api-design/SKILL.md) | “Review this SDK setup from the caller’s perspective. Simplify common usage while preserving compatibility.” |
+| [codebase-structure](skills/codebase-structure/SKILL.md) | “Choose where this feature belongs and check which boundaries a file move must preserve.” |
 | [write-docs](skills/write-docs/SKILL.md) | “Write a setup guide with prerequisites, a working example, and expected results.” |
 | [write-pr](skills/write-pr/SKILL.md) | “Write the PR description from this diff. Explain the behavior change and review risks.” |
 | [write-ui-copy](skills/write-ui-copy/SKILL.md) | “Review this screen's labels and errors. Remove hints that repeat the controls.” |
