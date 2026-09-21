@@ -172,5 +172,21 @@
     "expected_skills": [
       "public-api-design"
     ]
+  },
+  {
+    "id": "structure_runtime",
+    "request": "Review whether to merge these similarly named files.",
+    "facts": "A pure formatter is imported by browser and server code. An exporter imports server-only storage. One server consumer imports both.",
+    "expected_skills": [
+      "codebase-structure"
+    ]
+  },
+  {
+    "id": "structure_route_group",
+    "request": "Should we flatten this single-page route group?",
+    "facts": "The group has a layout that supplies a provider used by the page. Removing the group would select a different ancestor layout. No provider behavior change is requested.",
+    "expected_skills": [
+      "codebase-structure"
+    ]
   }
 ]
