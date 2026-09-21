@@ -204,5 +204,30 @@
     "expected_skills": [
       "identifier-naming"
     ]
+  },
+  {
+    "id": "naming_file_role",
+    "request": "Choose a clearer name for utils.ts without moving or splitting it.",
+    "facts": "The file contains only invoice-total calculations. The name is the unresolved decision. Imports and dynamic discovery must remain valid.",
+    "expected_skills": [
+      "identifier-naming"
+    ]
+  },
+  {
+    "id": "structure_then_vocabulary",
+    "request": "Separate this mixed module by responsibility and resolve ambiguous names for the resulting modules.",
+    "facts": "The module contains independent billing and notification policies. Existing domain terms overlap, so placement and vocabulary both need decisions. Supported entrypoints must stay stable.",
+    "expected_skills": [
+      "codebase-structure",
+      "identifier-naming"
+    ]
+  },
+  {
+    "id": "naming_path_contract",
+    "request": "Choose a clearer folder name for the invoice code in common.",
+    "facts": "The folder is also used by framework route discovery. No URL or routing behavior change is requested. Confirm how its name affects routes before proposing a rename.",
+    "expected_skills": [
+      "identifier-naming"
+    ]
   }
 ]

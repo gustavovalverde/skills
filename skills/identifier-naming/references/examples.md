@@ -33,3 +33,9 @@ Apply that convention rather than importing a TypeScript naming table. Preserve 
 Inside a short loop over customers, `customer` is usually sufficient. At a boundary accepting both the payer and recipient, `payer` and `recipient` communicate different roles better than two numbered customer variables.
 
 Add context to resolve a real ambiguity. Repeating the entire domain in every local binding makes reading harder without making meaning more precise.
+
+## Clarify a file or folder's existing role
+
+`utils.ts` contains only invoice-total calculations. Renaming it to `invoice-totals.ts` can clarify its role without moving or splitting the implementation. Likewise, a folder called `common` that contains only invoice code may warrant a domain name if the surrounding scope does not already supply it. Check imports and path-based discovery before applying either rename.
+
+If the file mixes invoice calculations, payment execution, and notification delivery, a more specific filename cannot establish a coherent responsibility. Assess ownership and grouping before choosing names for any resulting modules. Do not turn the naming request into an unrequested restructuring.
