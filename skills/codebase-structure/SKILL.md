@@ -1,6 +1,6 @@
 ---
 name: codebase-structure
-description: Choose or review file placement, module splits and merges, and directory organization when repository structure is the decision. Use for placement questions and structural refactors, not automatically for every new file or routine code edit.
+description: Choose or review file placement, module splits and merges, and directory organization when repository structure is the decision. Use for placement questions and structural refactors, not for routine edits or a rename that only clarifies an existing role.
 license: MIT
 ---
 
@@ -14,7 +14,7 @@ Compare extending, splitting, moving, and leaving the structure unchanged. File 
 
 Preserve client/server, worker, security, initialization, and package boundaries. A directory with one file can represent a useful boundary. A barrel can provide a supported public entrypoint. Establish actual dependency or bundling effects before claiming that a layout improves performance.
 
-Choose paths that predict responsibility in the project's vocabulary. Keep feature-local code near its feature when appropriate; use a shared location for an established shared responsibility. Follow the installed framework's routing and naming conventions rather than imposing one language's layout everywhere.
+Choose paths that predict responsibility in the project's vocabulary. Settle ownership and grouping before naming new boundaries. If terminology remains a substantive decision, use `identifier-naming` when available; obvious names and already-agreed renames do not require another skill. Keep feature-local code near its feature when appropriate; use a shared location for an established shared responsibility. Follow the installed framework's routing and naming conventions rather than imposing one language's layout everywhere.
 
 For moves and renames, identify supported import paths, URLs, discovery patterns, and generated files before editing. Preserve external contracts unless their migration is part of the task. Use [moves and verification](references/moves.md) to check references that types may not cover. Scale verification to affected consumers and runtime boundaries.
 
