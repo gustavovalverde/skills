@@ -1,0 +1,4 @@
+interface:
+  display_name: "Public API Design"
+  short_description: "Design APIs around user tasks and progressive disclosure"
+  default_prompt: "Use $public-api-design to design or review this public API from the caller’s perspective."

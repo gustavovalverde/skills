@@ -1,7 +1,7 @@
 {
   "name": "skills",
   "version": "0.1.0",
-  "description": "Assess architecture tradeoffs and write clear documentation, change descriptions, prose, and interface copy.",
+  "description": "Assess architecture and public API design, and write clear documentation, change descriptions, prose, and interface copy.",
   "author": {
     "name": "gustavovalverde"
   },
@@ -11,7 +11,8 @@
     "documentation",
     "pull-requests",
     "plain-language",
-    "architecture"
+    "architecture",
+    "api-design"
   ],
   "skills": "./skills/"
 }
