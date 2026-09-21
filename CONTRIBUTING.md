@@ -1,6 +1,6 @@
 # Contributing
 
-Keep each skill focused on a useful task and independent of personal configuration. Use `skills/write-docs/SKILL.md` when substantially changing human-facing documentation.
+Keep each skill focused on a useful task and independent of personal configuration. Use `skills/docs-writing/SKILL.md` when substantially changing human-facing documentation.
 
 After changing references or plugin metadata, run:
 

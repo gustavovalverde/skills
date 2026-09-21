@@ -1,5 +1,5 @@
 ---
-name: write-docs
+name: docs-writing
 description: Write or restructure documentation around what readers need to learn, do, look up, or decide. Includes explanatory slide and diagram text.
 license: MIT
 ---
