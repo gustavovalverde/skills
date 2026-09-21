@@ -156,5 +156,21 @@
     "request": "Correct the spelling of a comment in this function.",
     "facts": "No behavior or structure changes requested.",
     "expected_skills": []
+  },
+  {
+    "id": "api_transaction",
+    "request": "Review this proposed public SDK simplification.",
+    "facts": "Two operations currently receive the same transaction handle so callers can commit both atomically. The proposal removes the handle and opens a separate transaction inside each operation.",
+    "expected_skills": [
+      "public-api-design"
+    ]
+  },
+  {
+    "id": "api_setup",
+    "request": "Design a simpler common setup for this public search API.",
+    "facts": "Every caller must create an internal bridge and register the same instance with two hosts in a fixed order. The hosts share a lifecycle, and the bridge has no independent consumer use. Credentials and endpoint are explicit configuration.",
+    "expected_skills": [
+      "public-api-design"
+    ]
   }
 ]

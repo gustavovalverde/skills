@@ -1,7 +1,7 @@
 {
   "name": "skills",
   "version": "0.1.0",
-  "description": "Assess architecture tradeoffs and write clear documentation, change descriptions, prose, and interface copy.",
+  "description": "Assess architecture and public API design, and write clear documentation, change descriptions, prose, and interface copy.",
   "author": {
     "name": "gustavovalverde"
   },
@@ -11,13 +11,14 @@
     "documentation",
     "pull-requests",
     "plain-language",
-    "architecture"
+    "architecture",
+    "api-design"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Gustavo\u2019s Skills",
-    "shortDescription": "Architecture decisions and clear writing.",
-    "longDescription": "Independent skills for architecture assessment and writing, with guidance tailored to the task.",
+    "shortDescription": "Architecture, API design, and clear writing.",
+    "longDescription": "Independent skills for architecture, public API design, and writing, with guidance tailored to the task.",
     "developerName": "gustavovalverde",
     "category": "Productivity",
     "capabilities": [
