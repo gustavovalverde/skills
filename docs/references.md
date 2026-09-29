@@ -30,6 +30,7 @@ Sources for the skills' writing guidance and installation instructions. Choose r
 ## Skill design and explanation
 
 - [HumanLayer: show-me](https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md): choose a compact representation for the question, use a focused diff when context is familiar, and show a complete example when omitted context would hide ownership or order. Place visuals beside their supporting explanation.
+- [Matt Pocock: pr](https://github.com/mattpocock/skills/blob/main/skills/engineering/pr/SKILL.md): a PR body template with visual summary, before-and-after evidence, and merge danger (reversibility and blast radius). Its evidence and risk lenses are useful; its fixed section structure is not required.
 - [Matt Pocock: writing for agents](https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-for-agents/SKILL.md): focused triggers, conditional references, and grouping related instructions.
 - [Matt Pocock: writing shape](https://github.com/mattpocock/skills/blob/main/skills/in-progress/writing-shape/SKILL.md): establish concepts before relying on them and assess each paragraph's contribution. An experimental writing workflow, not a mandatory drafting process.
 - [Matt Pocock: writing beats](https://github.com/mattpocock/skills/blob/main/skills/in-progress/writing-beats/SKILL.md): end when the reader's purpose is fulfilled, rather than exhausting the source material. An experimental workflow.

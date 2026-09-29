@@ -16,6 +16,30 @@
     ]
   },
   {
+    "id": "pr_tiny",
+    "request": "Write the PR title and body. Repository titles use Conventional Commits.",
+    "facts": "Synthetic product fixture: one sentence added to the Retry section of docs/exports.md. It states that a retried export counts toward the account's daily export quota, as the public billing reference at https://example.com/docs/billing#exports states. No other content changes.",
+    "expected_skills": [
+      "pr-writing"
+    ]
+  },
+  {
+    "id": "pr_alignment",
+    "request": "Write the PR title and description for maintainers. Repository titles use Conventional Commits.",
+    "facts": "Synthetic product fixture: an integration guide taught authenticating the Acme CLI with --api-key. Acme's CLI now reads the ACME_TOKEN environment variable and accepts --token; --api-key still works as a deprecated alias. Acme's reference page still documents only --api-key, and its changelog names --token. The CLI source, public at commit 4f2c9e1a7b3d5f60819a2b3c4d5e6f708192a3b4, defines --token in src/commands/auth.ts lines 40 to 58 and prints the --api-key deprecation at lines 12 to 14. The guide now teaches ACME_TOKEN and --token. Tests assert the new wording.",
+    "expected_skills": [
+      "pr-writing"
+    ]
+  },
+  {
+    "id": "pr_stack_layer",
+    "request": "Write the PR title and body for layer 2 of a 3-PR GitHub stack. Repository titles use Conventional Commits.",
+    "facts": "Synthetic product fixture: CI examples in a deployment guide passed --token=$ACME_TOKEN on each command, exposing the token in process lists and logs. Examples now set ACME_TOKEN as a job environment variable, as the Acme CLI reference at https://example.com/docs/cli#authentication recommends. The same repository's CLI guide already requires this at docs/cli.md line 12 at commit 9c1b2a3d4e5f60718293a4b5c6d7e8f901a2b3c4. The repository remote is not provided.",
+    "expected_skills": [
+      "pr-writing"
+    ]
+  },
+  {
     "id": "release_note",
     "request": "Write a user-facing changeset sentence or short paragraph.",
     "facts": "Implemented change: failed CSV exports previously remained in the failed state when Retry was selected. The retry handler now clears the failure state before scheduling another export. Export format and public API are unchanged.",
