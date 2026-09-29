@@ -8,15 +8,21 @@ license: MIT
 
 Use the current diff and available evidence. Follow repository title conventions, templates, and applicable reporting requirements. Preserve the status of proposed work and unrun checks.
 
-Lead with the concrete problem and resulting behavior. Add a before-and-after example when it clarifies the change. Explain the design choice, changed contract, or tradeoff that reviewers cannot readily reconstruct from the diff.
+Title the change a reviewer is approving: the behavior added, removed, or corrected. When one title cannot honestly cover the change, split the pull request. In a stack, each title and body covers only its own layer; mention another layer only when this one depends on it, and leave stack position to the platform.
 
-Scale the body to the change. A small fix may need one paragraph; a cross-cutting change may need a review map grouped by concern. Keep file references and internal identifiers when they help locate or assess important behavior, rather than narrating every changed file.
+Lead with the concrete problem and resulting behavior, in terms a reader who never opened the code can follow. Explain the design choice, changed contract, or tradeoff that reviewers cannot reconstruct from the diff.
 
-Keep breaking behavior, required migration, dependencies, consequential assumptions, and unresolved risks visible. Optional exhaustive detail may be collapsed; required actions must not be. Generated summaries belong after the authored explanation and can be removed when redundant.
+Scale the body to the change. When the file diff shows the whole change, a short paragraph is enough. A cross-cutting change may need a review map grouped by concern. Keep file references and identifiers that help locate important behavior rather than narrating every file.
 
-Retain issue links and backport context that affect review or landing. Remove drafting history and irrelevant planning labels. Verification evidence must be accurate and follow the user's and repository's reporting rules; do not manufacture command logs or ceremonial sections.
+Keep breaking behavior, required migration, dependencies, consequential assumptions, and unresolved risks visible. Say when a change is hard to reverse, such as a data migration, a deletion, or a published contract, and what it can affect beyond the diff. Optional detail may be collapsed; required actions must not be.
 
-Choose a representation for the review question: a focused before-and-after or diff for changed behavior, a sequence for ordering, a shallow tree for ownership, or a table for comparable contracts. Keep prose for rationale. Include only the detail needed to explain the point, but show the complete example when a fragment would hide a critical condition or boundary. A visual is optional; place it beside the explanation it supports. Finish by checking that the description matches the final scope and stands alone.
+Write for the reviewer. Retain issue links and backport context that affect review or landing. Leave out drafting history, follow-up plans, and checks that CI already reports. Do not manufacture command logs or ceremonial sections. Fill a required template truthfully and leave unmet items unchecked.
+
+Add a visual only for what the file diff does not show at a glance: commands or output before and after, a restructure as a file tree, comparable sources as a table, a failure as its real output. Do not restate a diff a reviewer can read in seconds, such as a sentence of added prose; do condense a behavior change the diff spreads across files or buries in prose. [Representations](references/representations.md) lists the shapes and when each fits.
+
+Give reviewers evidence they can check: a test that failed and now passes, real output, or a screenshot for a visual change. Claim only what the evidence states and mark inferences as such. When the change aligns with an external fact, follow [citing sources](references/citations.md).
+
+Finish by checking that the title and description match the final scope and stand alone.
 
 For commit messages or release notes, use [change artifacts](references/change-artifacts.md). These readers need a different emphasis from reviewers; an impact statement may appear in both when each audience needs it. No additional style skill is required.
 
