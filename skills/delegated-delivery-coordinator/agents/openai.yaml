@@ -1,0 +1,4 @@
+interface:
+  display_name: "Delegated Delivery Coordinator"
+  short_description: "Coordinate bounded agents and verify integrated results"
+  default_prompt: "Use $delegated-delivery-coordinator to assign bounded work, review consequential checkpoints, and integrate verified results."
