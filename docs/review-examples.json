@@ -182,6 +182,31 @@
     "expected_skills": []
   },
   {
+    "id": "code_consistency_implementation",
+    "request": "Implement this feature in the style of the existing code and reuse any suitable helper.",
+    "facts": "A new CSV import path needs to normalize headers and map rows. The repository already has two importers with different header rules; a shared normalization helper is used by one importer, while the other intentionally preserves original casing. The new path should follow the importer with matching normalization semantics. No architecture, public API, or file-placement decision is open.",
+    "expected_skills": [
+      "code-consistency"
+    ]
+  },
+  {
+    "id": "code_consistency_review",
+    "request": "Review this diff for consistency with the repository's existing implementation patterns.",
+    "facts": "A new endpoint duplicates a date parser already used by two neighboring endpoints, but accepts a different timezone default. The diff also uses the repository's established error type and response shape. Assess whether the parser contract fits before recommending reuse; identify only deviations that affect behavior or maintenance.",
+    "expected_skills": [
+      "code-consistency"
+    ]
+  },
+  {
+    "id": "code_consistency_nearby_design",
+    "request": "Should these services share a boundary, and where should the new abstraction live?",
+    "facts": "The services have different data ownership and transaction lifetimes. No implementation has been approved. This asks for design and placement decisions rather than pattern matching during a settled feature implementation.",
+    "expected_skills": [
+      "software-design",
+      "codebase-structure"
+    ]
+  },
+  {
     "id": "api_transaction",
     "request": "Review this proposed public SDK simplification.",
     "facts": "Two operations currently receive the same transaction handle so callers can commit both atomically. The proposal removes the handle and opens a separate transaction inside each operation.",
