@@ -1,27 +1,29 @@
 ---
 name: ui-copy
-description: Write or review interface labels, actions, states, and recovery messages against actual product behavior and screen context.
+description: Write or review concise UI copy when building or changing product interfaces. Remove unnecessary text while preserving information needed to act.
 license: MIT
 ---
 
-# Write interface copy
+# Write less interface copy
 
-Establish the surface, actual product behavior, audience, and language. Use the product's glossary and design conventions. A copy request does not authorize changing product behavior or technical identifiers.
+Use the least text that lets the user recognize the current state, make a decision, and complete the task. Follow the product's language and design conventions. Assess the composed screen, not strings in isolation.
 
-## Establish state and supported actions
+## Require a reason to add text
 
-Before proposing an action, establish the known outcome and which actions the product supports in that state. Distinguish pending, completed, failed, and unknown outcomes. If completion is unknown, do not infer retry safety from a timeout or from the availability of a history page. Do not invent an action to make a message feel complete. Without an established safe retry, omit retry instructions, including conditional wording such as “check history before trying again.” Include only actions established by the supplied behavior.
+Start with clear labels, values, states, and actions. Product facts are context, not a checklist of text to display. Add explanation only when needed for the current decision: a non-obvious constraint, consequence, distinction, or recovery step. A heading does not need a subtitle; a card does not need a description. Explain a future outcome only if it changes the decision now.
 
-Offer retry, undo, or recovery only when supported by the supplied behavior. A known-safe retry can be offered; an uncertain outcome needs a supported status check or other established next step. Success copy confirms only completed work. Put irreversible or costly consequences before the action that commits them.
+Selected filters, dates, badges, field labels, and action labels already communicate information. Avoid restating them or narrating the next click. For example, a selected period usually needs no separate date caption, and a metric needs no sentence paraphrasing its label. Keep exact dates when they support a distinct decision.
 
-## Review copy in context
+Tooltips and disclosures are options for useful secondary context, not places to put deleted repetition. Add them only for a concrete need. Keep essential instructions, consequences, errors, and recovery visible.
 
-Give controls meaningful labels and keep essential instructions visible. Align visible wording and accessible names. Preserve distinctions between no data, no matching results, and failed loading. Status and error text must remain understandable without color or position alone.
+## Preserve meaning
 
-Compare hints and captions with the controls, headings, numbers, and earlier steps users can see. Remove repetition, but keep non-obvious constraints and consequences. An unchecked checkbox does not prove a choice is optional. Repeat orientation or warnings when users can enter a step directly; accessible descriptions may deliberately repeat visual information.
+Match copy to the actual state and supported actions. Never invent success, guarantees, or safe retry; a timeout does not prove an operation failed. Keep necessary context at direct entry points and before consequential actions.
 
-For example, “Select an option” beneath a clearly labeled selector may add little; “This changes access for every member” can be essential. Avoid unsupported reassurance or timing promises.
+Omit terminal periods from titles, headings, navigation, controls, labels, and short UI fragments. Retain question marks and normal punctuation in explanatory prose. Preserve domain terms, translation variables, plural forms, and technical identifiers. Keep accessible names aligned with visible labels; necessary accessible descriptions may repeat visual information.
 
-Consult [surface decisions](references/decision-matrix.md) for wording and punctuation examples, or [copy audit](references/review-checklist.md) for a broader review. A single-string edit needs only its relevant checks.
+## Finish with a deletion pass
 
-Preserve localization variables, plural forms, and exact identifiers. Check wrapping, truncation, accessibility, and affected translations when the change warrants it. Use length as a layout signal, not an arbitrary correctness threshold. Report a concrete replacement or the missing behavior that prevents an accurate one.
+Before finishing, review the composed UI across all requested changes, including adjacent states. For each supporting sentence, ask: if removed, would the user lose information needed for this task? If not, delete it. Check repetition of meaning, not just identical wording.
+
+Delete before shortening, and avoid replacing redundant text with another slogan. Verify affected languages and layouts when relevant. A focused edit needs its surrounding context, not an unrelated repository-wide audit.

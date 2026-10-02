@@ -253,5 +253,29 @@
     "expected_skills": [
       "identifier-naming"
     ]
+  },
+  {
+    "id": "ui_dashboard_creation",
+    "request": "Write Spanish UI copy for a new merchant dashboard.",
+    "facts": "The dashboard has a period selector with Últimos 7 días and selected Últimos 30 días, four metrics for created payments, collected amount, completed payments, and pending payments, a Crear enlace de pago action, and a recent-payments table. Exact period dates are available, but there is no date-specific task or reporting requirement. No comparison or settlement features exist.",
+    "expected_skills": [
+      "ui-copy"
+    ]
+  },
+  {
+    "id": "ui_changed_screens",
+    "request": "Review the copy across the dashboard, Settings, and onboarding screens changed in this PR.",
+    "facts": "The dashboard repeats its period selector in a date caption and paraphrases each metric label in a description. Settings has title Ajustes., a subtitle announcing the settings below, tabs Negocio/Equipo/Conexiones, and team description inviting users to use the adjacent invitation action. Team role help states that administrators can create payments and manage the team; revocation immediately removes access. Onboarding asks ¿Cómo se llama tu negocio? and repeats how to type the name and press Continuar, while a distinct hint explains that the name is visible to customers. No help-popup interaction is required.",
+    "expected_skills": [
+      "ui-copy"
+    ]
+  },
+  {
+    "id": "ui_export_dates",
+    "request": "Review the title and date line in an exported sales report preview.",
+    "facts": "Title: Sales report. Date line: 1 July–30 September 2026. The app selector reads Previous quarter, but the exported PDF is shared without the app controls and must identify the exact reporting interval. The export contains only those transactions.",
+    "expected_skills": [
+      "ui-copy"
+    ]
   }
 ]
