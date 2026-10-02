@@ -277,5 +277,29 @@
     "expected_skills": [
       "ui-copy"
     ]
+  },
+  {
+    "id": "delegated_delivery",
+    "request": "Use internal workers to implement the independent parser and documentation changes, then integrate them. Do not publish.",
+    "facts": "The repository has separate parser and docs paths, but both use generated reference output. Worker contexts and files can be shared. Assign ownership, an appropriate return boundary, and checks of the integrated behavior.",
+    "expected_skills": [
+      "delegated-delivery-coordinator"
+    ]
+  },
+  {
+    "id": "delegated_transfer",
+    "request": "Continue the delegated task after the first worker stopped responding and hand its files to another worker.",
+    "facts": "The first worker has partial edits and a pending shell command. Runtime exposes status, wait, and interrupt controls; no completed stop confirmation is available yet.",
+    "expected_skills": [
+      "delegated-delivery-coordinator"
+    ]
+  },
+  {
+    "id": "delegated_direct_exclusion",
+    "request": "Change the button label from Save to Save changes.",
+    "facts": "Single agreed reversible wording edit in one component. No agent coordination, design, or ownership decision is requested.",
+    "expected_skills": [
+      "ui-copy"
+    ]
   }
 ]
