@@ -22,6 +22,8 @@ Compare hints and captions with the controls, headings, numbers, and earlier ste
 
 For example, “Select an option” beneath a clearly labeled selector may add little; “This changes access for every member” can be essential. Avoid unsupported reassurance or timing promises.
 
+For marketing pages, review the entire rendered page for repeated propositions, not just repeated wording. Remove introductions that merely announce the cards or lists below them. A heading does not automatically need a subtitle. Keep repeated information only when it supports a distinct decision, consequence, or entry point. Prefer deletion over replacing redundant text with another slogan.
+
 Consult [surface decisions](references/decision-matrix.md) for wording and punctuation examples, or [copy audit](references/review-checklist.md) for a broader review. A single-string edit needs only its relevant checks.
 
 Preserve localization variables, plural forms, and exact identifiers. Check wrapping, truncation, accessibility, and affected translations when the change warrants it. Use length as a layout signal, not an arbitrary correctness threshold. Report a concrete replacement or the missing behavior that prevents an accurate one.
