@@ -20,7 +20,7 @@ Write for the reviewer. Retain issue links and backport context that affect revi
 
 Add a visual only for what the file diff does not show at a glance: commands or output before and after, a restructure as a file tree, comparable sources as a table, a failure as its real output. Do not restate a diff a reviewer can read in seconds, such as a sentence of added prose; do condense a behavior change the diff spreads across files or buries in prose. [Representations](references/representations.md) lists the shapes and when each fits.
 
-Give reviewers evidence they can check: a test that failed and now passes, real output, or a screenshot for a visual change. Claim only what the evidence states and mark inferences as such. When the change aligns with an external fact, follow [citing sources](references/citations.md).
+Give reviewers evidence they can check: a test that failed and now passes, real output, or a screenshot for a visual change. Claim only what the evidence states and mark inferences as such. Build file and line links with [the permalink script](scripts/permalink.py), which pins the commit and checks that the lines exist. When the change aligns with an external fact, follow [citing sources](references/citations.md).
 
 Finish by checking that the title and description match the final scope and stand alone.
 
