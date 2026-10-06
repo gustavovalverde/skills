@@ -1,6 +1,6 @@
 ---
 name: software-design
-description: Plan a feature or substantial refactor, or assess a design's interfaces, state ownership, module boundaries, abstractions, and error handling. Use when implementation needs decisions that are still open, when the user asks how to approach or structure a change, or whether an abstraction or dependency earns its place. Not for routine edits, executing an approved plan, or a question only about API usage, file placement, or naming.
+description: Plan a feature or substantial refactor, or assess a design's interfaces, state ownership, module boundaries, abstractions, and error handling. Use when implementation needs decisions that are still open, when the user asks how to approach or structure a change, how an internal module should expose its behavior, or whether an abstraction or dependency earns its place. Not for routine edits, executing an approved plan, or a question only about public API usage, file placement, or naming.
 license: MIT
 ---
 

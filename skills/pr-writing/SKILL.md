@@ -1,6 +1,6 @@
 ---
 name: pr-writing
-description: Write or revise pull request titles and descriptions, commit messages, changesets, changelog entries, and release notes. Use when opening or updating a pull request, describing a diff or a stacked change for reviewers, or summarizing a change for users. Not for design documents or ADRs (docs-writing) or for reviewing the code itself.
+description: Write or revise pull request titles and descriptions, commit messages, changesets, changelog entries, and release notes. Use when opening or updating a pull request, describing a diff or a stacked change for reviewers, or summarizing a change for users, even in a single sentence. Not for design documents or ADRs (docs-writing) or for reviewing the code itself.
 license: MIT
 ---
 

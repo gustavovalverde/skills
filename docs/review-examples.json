@@ -369,5 +369,129 @@
     "request": "Review this diff for bugs before I merge it.",
     "facts": "The diff changes retry scheduling in src/exports/retry.ts and adds one test.",
     "expected_skills": []
+  },
+  {
+    "id": "changelog_casual",
+    "request": "can u write the changelog line for the fix that stops duplicate exports",
+    "facts": "Retrying an export used to create a second export when the first was still running. Retry now reuses the running export.",
+    "expected_skills": [
+      "pr-writing"
+    ]
+  },
+  {
+    "id": "pr_short",
+    "request": "Write the PR description for this change.",
+    "facts": "Adds a --dry-run flag to the import command that validates input and prints the planned changes without writing. Tests cover valid and invalid files.",
+    "expected_skills": [
+      "pr-writing"
+    ]
+  },
+  {
+    "id": "wizard_step",
+    "request": "Our onboarding wizard's step 2 says 'Please configure your settings to continue.' Rewrite it.",
+    "facts": "Step 2 asks for the workspace name and default currency. Both are required. Currency cannot be changed later.",
+    "expected_skills": [
+      "ui-copy"
+    ]
+  },
+  {
+    "id": "tooltip",
+    "request": "Add a tooltip explaining what Net revenue means on the dashboard card.",
+    "facts": "Net revenue is gross sales minus refunds and payment fees, for the selected period.",
+    "expected_skills": [
+      "ui-copy"
+    ]
+  },
+  {
+    "id": "cli_flag_docs",
+    "request": "Write docs for the new --dry-run flag of our CLI.",
+    "facts": "--dry-run validates the input file and prints planned changes. It exits 0 when valid and 2 when invalid. It never writes.",
+    "expected_skills": [
+      "docs-writing"
+    ]
+  },
+  {
+    "id": "name_question",
+    "request": "Is processData a good name for a function that validates and saves an invoice?",
+    "facts": "",
+    "expected_skills": [
+      "identifier-naming"
+    ]
+  },
+  {
+    "id": "utils_placement",
+    "request": "We keep dumping helpers into utils/. Where should the date-formatting ones go?",
+    "facts": "Date helpers are used by the billing and reports features. The repo groups code by feature under src/features/.",
+    "expected_skills": [
+      "codebase-structure"
+    ]
+  },
+  {
+    "id": "sdk_callback",
+    "request": "Should our public SDK's upload() return a promise or take a callback?",
+    "facts": "The SDK targets Node 18+ and browsers. Existing methods return promises. upload() is new.",
+    "expected_skills": [
+      "public-api-design"
+    ]
+  },
+  {
+    "id": "retry_design",
+    "request": "How should I structure the retry logic for our webhook dispatcher before I start coding?",
+    "facts": "Webhooks are sent from a worker. Receivers may be slow or down. Duplicate deliveries are possible today.",
+    "expected_skills": [
+      "software-design"
+    ]
+  },
+  {
+    "id": "overengineered",
+    "request": "Review whether this class hierarchy is overengineered.",
+    "facts": "An abstract Exporter has one subclass, CsvExporter, and a factory that always returns it. Tests construct CsvExporter directly.",
+    "expected_skills": [
+      "software-design"
+    ]
+  },
+  {
+    "id": "postmortem_exec",
+    "request": "Here's my postmortem draft, can you make it read better for execs?",
+    "facts": "The draft opens with a two-page timeline, states impact (40 minutes of failed checkouts) on page three, and ends with five action items without owners.",
+    "expected_skills": [
+      "text-editing"
+    ]
+  },
+  {
+    "id": "concept_question",
+    "request": "Explain what idempotency means.",
+    "facts": "",
+    "expected_skills": []
+  },
+  {
+    "id": "typo",
+    "request": "Fix the typo in this error string: 'Pasword is requried'.",
+    "facts": "",
+    "expected_skills": []
+  },
+  {
+    "id": "tweet",
+    "request": "Write a tweet announcing our launch.",
+    "facts": "We launch connector-scoped imports on Monday.",
+    "expected_skills": []
+  },
+  {
+    "id": "run_tests",
+    "request": "Run the tests and tell me what fails.",
+    "facts": "",
+    "expected_skills": []
+  },
+  {
+    "id": "summarize",
+    "request": "Summarize this RFC for me in three bullets.",
+    "facts": "The RFC proposes connector-scoped ownership for imported records, compares it with a composite key, and recommends an irreversible migration.",
+    "expected_skills": []
+  },
+  {
+    "id": "barrel_question",
+    "request": "What's the difference between a barrel file and direct imports?",
+    "facts": "",
+    "expected_skills": []
   }
 ]

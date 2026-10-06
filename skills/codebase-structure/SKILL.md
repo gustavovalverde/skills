@@ -1,6 +1,6 @@
 ---
 name: codebase-structure
-description: Decide where code belongs, including file and module placement, splitting or merging modules, directory layout, and moving files across boundaries. Use when the user asks where something should go, whether to split or merge files, how to organize a folder or package, or to move code between modules or packages. Not for renaming something that stays in place (identifier-naming) or for routine edits.
+description: Decide where code belongs, including file and module placement, splitting or merging modules, flattening or nesting directories, and moving files across boundaries. Use when the user asks where something should go, whether to split or merge files, how to organize a folder or package, or to move code between modules or packages. Not for renaming something that stays in place (identifier-naming) or for routine edits.
 license: MIT
 ---
 

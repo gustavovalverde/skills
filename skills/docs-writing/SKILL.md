@@ -1,6 +1,6 @@
 ---
 name: docs-writing
-description: Write or restructure documentation such as tutorials, how-to guides, READMEs, reference pages, conceptual explanations, proposals, RFCs, and ADRs, plus explanatory text for slides and diagrams. Use when creating a page, or substantially revising one, that readers learn from, follow, look up, or decide with. Not for interface text (ui-copy), pull request descriptions or release notes (pr-writing), or line editing that keeps a draft's structure (text-editing).
+description: Write or restructure documentation such as tutorials, how-to guides, READMEs, reference pages, conceptual explanations, proposals, RFCs, and ADRs, plus explanatory text for slides and diagrams. Use when creating or substantially revising documentation that readers learn from, follow, look up, or decide with, even when the piece is small, such as one reference entry or one caption. Not for interface text (ui-copy), pull request descriptions or release notes (pr-writing), or line editing that keeps a draft's structure (text-editing).
 license: MIT
 ---
 

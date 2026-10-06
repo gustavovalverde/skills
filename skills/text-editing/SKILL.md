@@ -1,6 +1,6 @@
 ---
 name: text-editing
-description: Review or revise an existing draft for clarity, organization, readability, and audience fit, such as emails, announcements, essays, reports, or documentation passages. Use when the user asks to edit, tighten, simplify, or give feedback on prose that already exists. Not for writing new documentation (docs-writing), interface text (ui-copy), translations, ordinary replies, or spelling fixes.
+description: Review or revise an existing draft for clarity, organization, readability, and audience fit, such as emails, announcements, essays, reports, or documentation passages. Use whenever the user shares prose and asks to edit, tighten, simplify, or get feedback on it, even a single paragraph or section. Not for writing new documentation (docs-writing), interface text (ui-copy), translations, ordinary replies, or spelling fixes.
 license: MIT
 ---
 
