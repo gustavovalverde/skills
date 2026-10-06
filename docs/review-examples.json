@@ -587,5 +587,21 @@
     "expected_skills": [
       "docs-writing"
     ]
+  },
+  {
+    "id": "advisory_fix_review",
+    "request": "Review this fix for the accepted advisory before we merge it.",
+    "facts": "The fix makes the token check run before the session is created. The advisory covers two affected routes; the patch changes one of them and adds a regression test.",
+    "expected_skills": [
+      "advisory-triage"
+    ]
+  },
+  {
+    "id": "advisory_release_grouping",
+    "request": "Which of our accepted advisories can ship in the next patch release, and which need a minor?",
+    "facts": "Three accepted findings have reviewed fixes. One adds a database column; one requires apps to update their client; one only rejects an unauthorized request.",
+    "expected_skills": [
+      "advisory-triage"
+    ]
   }
 ]

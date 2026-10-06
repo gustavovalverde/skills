@@ -14,7 +14,7 @@ node "$SKILL/scripts/release-lines.mjs" --repo CHECKOUT --pr PR_NUMBER --package
 
 It lists the first tag containing the fix on each line, whether npm publishes it, and the published pre-releases before it on the same pre-release line. A line it does not list has no release containing those commits, so confirm whether that line is unaffected or still needs a fix. For other registries, compare release tags with the registry directly.
 
-A branch fix is not a fixed package, and a merge is not a release. Distinguish "fixed in source" from "a fixed package is available"; an assigned release number does not prove availability.
+A branch fix is not a fixed package, and a merge is not a release. Distinguish "fixed in source" from "a fixed package is available"; an assigned release number does not prove availability. The exception is a body drafted for publication after a release the maintainers have named, which [writing](writing.md) covers.
 
 ## Write ranges that do not go stale
 

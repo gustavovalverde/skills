@@ -42,7 +42,7 @@ With `--apply`, it adds `after.json` beside the dry-run files and never overwrit
 
 ## Remediation and disclosure remain separate
 
-The normal accepted-finding sequence is draft acceptance, temporary fork, reviewed fix, merge through the advisory, public-branch verification, package release, final ranges, and advisory publication. Publication is disclosure, not a merge or release, and deletes the temporary fork. None of these steps follows automatically from a triage recommendation.
+The normal accepted-finding sequence is draft acceptance, temporary fork (one advisory per fork, as the [policy](policy.md) explains), reviewed fix, merge through the advisory, public-branch verification, package release, final ranges, and advisory publication. Publication is disclosure, not a merge or release, and deletes the temporary fork. None of these steps follows automatically from a triage recommendation.
 
 Check the current SECURITY.md for response and disclosure deadlines. A deadline requiring disclosure without a fix needs an explicit maintainer decision, not an invented patch version or silent delay. GitHub supports CVE requests for drafts; separate API capability from team-preferred timing and actual authorization.
 

@@ -1,6 +1,6 @@
 ---
 name: advisory-triage
-description: Handle security vulnerability reports and GitHub security advisories for a repository, from intake and duplicate screening through contract assessment, CVSS scoring, advisory drafting, and disclosure readiness. Use when a vulnerability report or draft advisory arrives, when choosing the next advisory to review, when deciding whether a report is a real vulnerability, or when writing or checking an advisory's body, affected ranges, or metadata. Not for ordinary bug triage (backlog-triage), security review of a code change, exploit development, or fixing the vulnerability.
+description: Handle security vulnerability reports and GitHub security advisories for a repository, from intake and duplicate screening through contract assessment, CVSS scoring, fix review, release planning, advisory drafting, and disclosure readiness. Use when a vulnerability report or draft advisory arrives, when choosing the next advisory to review, when deciding whether a report is a real vulnerability, when implementing or reviewing the fix for an accepted advisory, when deciding which fixes ship in a security release, or when writing or checking an advisory's body, affected ranges, or metadata. Not for ordinary bug triage (backlog-triage), security review of an unrelated code change, or exploit development.
 license: MIT
 ---
 
@@ -18,6 +18,8 @@ Choose the phase by the missing evidence or the requested output instead of rest
 | --- | --- | --- |
 | New report, next advisory, prior work, duplicates, missing information, or early closure | [Intake](references/intake.md) | Claim-level screening and a recommendation |
 | Disputed contract, technical validity, scope, versions, impact, or scoring | [Assessment](references/assessment.md) | Evidence-backed verdict and disposition |
+| Accepted finding and a request to implement or review its fix | [Remediation](references/remediation.md) | Acceptance matrix, verdict, and merge recommendation |
+| Fixes ready or nearly ready, and a decision about what ships together | [Release planning](references/release.md) | Track for each fix, upgrade notice, and publication steps |
 | Accepted claims and a request to draft or update the body or metadata | [Writing](references/writing.md) | Copyable body, metadata delta, and uncertainty |
 | Accepted finding with a candidate disclosure | [Readiness](references/readiness.md) | Check results, blockers, and the human decision needed |
 
@@ -33,6 +35,7 @@ For an end-to-end request, advance through justified phases, then stop at a huma
 - "Not examined" is not "unaffected", and the first verified affected version is not necessarily the first affected version.
 - Similar endpoints, titles, or a shared pull request do not make a duplicate. Map coverage per claim.
 - Permission to edit the body and metadata does not cover state changes, credits, messages, CVE requests, forks, fixes, or releases.
+- A temporary private fork belongs to one advisory, and its reporter can see everything pushed there. Another advisory's fixes never go into it.
 
 ## Finish
 
