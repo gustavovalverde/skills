@@ -1,10 +1,12 @@
 {
-  "name": "skills",
-  "version": "0.1.0",
+  "name": "legible",
+  "version": "0.2.0",
   "description": "Assess architecture and public API design, and write clear documentation, change descriptions, prose, and interface copy.",
   "author": {
     "name": "gustavovalverde"
   },
+  "homepage": "https://github.com/gustavovalverde/skills",
+  "repository": "https://github.com/gustavovalverde/skills",
   "license": "MIT",
   "keywords": [
     "writing",

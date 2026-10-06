@@ -1,0 +1,4 @@
+interface:
+  display_name: "Text Editing"
+  short_description: "Edit drafts for clarity without losing meaning"
+  default_prompt: "Use $text-editing to make this draft easier to follow while keeping its evidence and caveats."

@@ -35,7 +35,7 @@ Agents can also select a skill when the task fits. Ordinary replies and small wo
 
 Keep your preferred spelling, punctuation, and terminology in your project instructions. Each skill works independently; edit its files under `skills/` to adapt it.
 
-See [contributing](CONTRIBUTING.md) for checks and [external references](docs/references.md) for source guidance and [licensing](docs/provenance.md) for attribution.
+See [AGENTS.md](AGENTS.md) for how skills are written, [contributing](CONTRIBUTING.md) for checks, [external references](docs/references.md) for source guidance, and [licensing](docs/provenance.md) for attribution.
 
 ## License
 

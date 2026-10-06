@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "name": "skills",
+      "name": "legible",
       "source": {
         "source": "local",
         "path": "./"

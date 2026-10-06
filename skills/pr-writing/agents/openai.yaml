@@ -1,0 +1,4 @@
+interface:
+  display_name: "PR Writing"
+  short_description: "Write reviewer-focused PR titles and descriptions"
+  default_prompt: "Use $pr-writing to write the PR title and description from this diff."
