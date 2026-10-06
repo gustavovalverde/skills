@@ -92,6 +92,9 @@ Sources for the skills' writing guidance and installation instructions. Choose r
 - [GitHub REST: update an issue](https://docs.github.com/en/rest/issues/issues#update-an-issue)
 - [GitHub REST: update a pull request](https://docs.github.com/en/rest/pulls/pulls#update-a-pull-request)
 - [GitHub REST: issue types](https://docs.github.com/en/rest/repos/issue-types)
+- [GitHub REST: repository security advisories](https://docs.github.com/en/rest/security-advisories/repository-advisories)
+- [GitHub Docs: collaborating in a temporary private fork](https://docs.github.com/en/code-security/tutorials/fix-reported-vulnerabilities/collaborate-in-a-fork)
+- [FIRST: CVSS 3.1 specification](https://www.first.org/cvss/v3-1/specification-document)
 
 GitHub's documentation describes the native primitives and API shapes the triage skills use; check the current page before relying on an exact field name.
 

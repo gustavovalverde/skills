@@ -47,6 +47,8 @@ Each skill must work when installed alone.
 | `software-design` | `docs-writing` | The user asks to record the decision as an ADR or proposal |
 | `codebase-structure` | `identifier-naming` | Ownership is settled and terminology is still disputed |
 | `identifier-naming` | `codebase-structure` | A name cannot be chosen because ownership or placement is unsettled |
+| `backlog-triage` | `advisory-triage` | A report needs private security handling |
+| `advisory-triage` | `backlog-triage` | A report turns out to be ordinary engineering work |
 
 `codebase-structure` owns the checks for moving and renaming paths. `identifier-naming` keeps only the path checks a rename needs when it is installed alone.
 

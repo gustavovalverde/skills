@@ -1,0 +1,968 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/gustavovalverde/skills/advisory-triage/case.schema.json",
+  "title": "Advisory triage case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "process_version",
+    "case_id",
+    "source",
+    "authorization",
+    "repository",
+    "duplicate_assessment",
+    "claims",
+    "overall_disposition",
+    "case_status",
+    "reporter_response_draft",
+    "maintainer_decision",
+    "github_snapshot",
+    "post_triage",
+    "last_triaged_at"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "advisory-case/v2"
+    },
+    "process_version": {
+      "enum": [
+        "2.0.0",
+        "2.1.0",
+        "2.1.1",
+        "2.1.2",
+        "2.2.0"
+      ]
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]+$"
+    },
+    "source": {
+      "$ref": "#/$defs/source"
+    },
+    "authorization": {
+      "$ref": "#/$defs/authorization"
+    },
+    "repository": {
+      "$ref": "#/$defs/repository"
+    },
+    "duplicate_assessment": {
+      "$ref": "#/$defs/duplicateAssessment"
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    },
+    "overall_disposition": {
+      "$ref": "#/$defs/disposition"
+    },
+    "case_status": {
+      "enum": [
+        "intake",
+        "static_triage",
+        "runtime_validation",
+        "awaiting_clarification",
+        "awaiting_maintainer_decision",
+        "terminal"
+      ]
+    },
+    "reporter_response_draft": {
+      "type": "string",
+      "minLength": 1
+    },
+    "maintainer_decision": {
+      "$ref": "#/$defs/maintainerDecision"
+    },
+    "github_snapshot": {
+      "$ref": "#/$defs/githubSnapshotPair"
+    },
+    "post_triage": {
+      "$ref": "#/$defs/postTriage"
+    },
+    "last_triaged_at": {
+      "$ref": "#/$defs/timestamp"
+    },
+    "continuity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner",
+        "next_action",
+        "hold_reason",
+        "shared_record_url",
+        "shared_audience",
+        "last_reviewed_revision"
+      ],
+      "properties": {
+        "owner": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "next_action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hold_reason": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "shared_record_url": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "shared_audience": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "last_reviewed_revision": {
+          "$ref": "#/$defs/nullableString"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "process_version": {
+            "enum": [
+              "2.1.0",
+              "2.1.1",
+              "2.1.2",
+              "2.2.0"
+            ]
+          }
+        },
+        "required": [
+          "process_version"
+        ]
+      },
+      "then": {
+        "properties": {
+          "claims": {
+            "items": {
+              "required": [
+                "product_contract"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "process_version": {
+            "const": "2.2.0"
+          }
+        },
+        "required": [
+          "process_version"
+        ]
+      },
+      "then": {
+        "required": [
+          "continuity"
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "nullableTimestamp": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/timestamp"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "nullableString": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "disposition": {
+      "enum": [
+        "accept",
+        "clarify",
+        "close_not_vulnerability",
+        "close_duplicate",
+        "hardening",
+        "out_of_scope",
+        "issue"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "url",
+        "github_state",
+        "title",
+        "reporter",
+        "created_at",
+        "updated_at",
+        "retrieved_at",
+        "acknowledgement_deadline",
+        "publicly_disclosed",
+        "active_exploitation",
+        "disclosure_deadline"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "github_repository_advisory",
+            "email",
+            "public_issue",
+            "scanner_ticket",
+            "other"
+          ]
+        },
+        "url": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "github_state": {
+          "enum": [
+            "triage",
+            "draft",
+            "published",
+            "closed",
+            "not_applicable"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reporter": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "created_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "retrieved_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "acknowledgement_deadline": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "publicly_disclosed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "active_exploitation": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "disclosure_deadline": {
+          "$ref": "#/$defs/nullableTimestamp"
+        }
+      }
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "github_read",
+        "github_write",
+        "local_artifact_write",
+        "dynamic_validation",
+        "remediation",
+        "recorded_at",
+        "basis"
+      ],
+      "properties": {
+        "github_read": {
+          "enum": [
+            "authorized",
+            "not_authorized"
+          ]
+        },
+        "github_write": {
+          "enum": [
+            "authorized",
+            "not_authorized"
+          ]
+        },
+        "local_artifact_write": {
+          "enum": [
+            "authorized",
+            "not_authorized"
+          ]
+        },
+        "dynamic_validation": {
+          "enum": [
+            "authorized_if_needed",
+            "authorized",
+            "not_authorized"
+          ]
+        },
+        "remediation": {
+          "enum": [
+            "authorized",
+            "not_authorized"
+          ]
+        },
+        "recorded_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "security_policy_path",
+        "stable_ref",
+        "stable_sha",
+        "prerelease_ref",
+        "prerelease_sha"
+      ],
+      "properties": {
+        "github": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[\\w.-]+/[\\w.-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "security_policy_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stable_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stable_sha": {
+          "$ref": "#/$defs/sha"
+        },
+        "prerelease_ref": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "prerelease_sha": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/sha"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "duplicateAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "checked_at",
+        "queries",
+        "result",
+        "candidate_ids",
+        "rationale"
+      ],
+      "properties": {
+        "checked_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "queries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "result": {
+          "enum": [
+            "exact_duplicate",
+            "material_overlap",
+            "no_match",
+            "unresolved"
+          ]
+        },
+        "candidate_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "productContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "surface",
+        "delivery",
+        "lifecycle",
+        "default_enabled",
+        "production_support",
+        "supported_environments",
+        "intended_capability",
+        "security_guarantee",
+        "contract_evidence",
+        "contract_violated",
+        "advisory_justification"
+      ],
+      "properties": {
+        "surface": {
+          "type": "string",
+          "minLength": 1
+        },
+        "delivery": {
+          "enum": [
+            "core_default",
+            "core_opt_in",
+            "official_plugin",
+            "example",
+            "internal",
+            "third_party",
+            "unknown"
+          ]
+        },
+        "lifecycle": {
+          "enum": [
+            "stable",
+            "experimental",
+            "deprecated",
+            "removed",
+            "unknown"
+          ]
+        },
+        "default_enabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "production_support": {
+          "enum": [
+            "supported",
+            "conditional",
+            "not_supported",
+            "unknown"
+          ]
+        },
+        "supported_environments": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "intended_capability": {
+          "type": "string",
+          "minLength": 1
+        },
+        "security_guarantee": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contract_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "contract_violated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "advisory_justification": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "title",
+        "technical_verdict",
+        "disposition",
+        "branch_state",
+        "confidence",
+        "policy_basis",
+        "source",
+        "control",
+        "sink",
+        "reachable_path",
+        "boundary",
+        "preconditions",
+        "impact",
+        "evidence",
+        "counterevidence",
+        "proof_gaps",
+        "runtime_validation",
+        "version_assessment",
+        "cvss_v3_1",
+        "operational_priority",
+        "recommended_next_step"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "pattern": "^claim-[0-9]{3}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "technical_verdict": {
+          "enum": [
+            "confirmed",
+            "refuted",
+            "unresolved"
+          ]
+        },
+        "disposition": {
+          "$ref": "#/$defs/disposition"
+        },
+        "branch_state": {
+          "enum": [
+            "live_on_both",
+            "fixed_on_prerelease",
+            "prerelease_only_regression",
+            "fixed_pre_disclosure",
+            "not_applicable"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "policy_basis": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "product_contract": {
+          "$ref": "#/$defs/productContract"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "control": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sink": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reachable_path": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "boundary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "product_surface",
+            "source_trust",
+            "boundary_crossed"
+          ],
+          "properties": {
+            "product_surface": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_trust": {
+              "type": "string",
+              "minLength": 1
+            },
+            "boundary_crossed": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          }
+        },
+        "preconditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "impact": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "counterevidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "proof_gaps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "runtime_validation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifact",
+            "command",
+            "red_result",
+            "notes"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "not_needed",
+                "required",
+                "not_run",
+                "completed",
+                "inconclusive"
+              ]
+            },
+            "artifact": {
+              "$ref": "#/$defs/nullableString"
+            },
+            "command": {
+              "$ref": "#/$defs/nullableString"
+            },
+            "red_result": {
+              "$ref": "#/$defs/nullableString"
+            },
+            "notes": {
+              "type": "string"
+            }
+          }
+        },
+        "version_assessment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "affected_ranges",
+            "fixed_versions",
+            "evidence"
+          ],
+          "properties": {
+            "affected_ranges": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "fixed_versions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "cvss_v3_1": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vector",
+            "score",
+            "rationale"
+          ],
+          "properties": {
+            "vector": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "pattern": "^CVSS:3\\.1/"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 10
+            },
+            "rationale": {
+              "type": "string"
+            }
+          }
+        },
+        "operational_priority": {
+          "enum": [
+            "p0",
+            "p1",
+            "p2",
+            "p3",
+            "none"
+          ]
+        },
+        "recommended_next_step": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "maintainerDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "decided_by",
+        "decided_at",
+        "notes"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "approved",
+            "rejected"
+          ]
+        },
+        "decided_by": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "decided_at": {
+          "$ref": "#/$defs/nullableTimestamp"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "githubSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "captured_at",
+        "state",
+        "updated_at",
+        "metadata_digest"
+      ],
+      "properties": {
+        "captured_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "state": {
+          "enum": [
+            "triage",
+            "draft",
+            "published",
+            "closed"
+          ]
+        },
+        "updated_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "metadata_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "githubSnapshotPair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "before",
+        "after",
+        "unchanged"
+      ],
+      "properties": {
+        "before": {
+          "$ref": "#/$defs/githubSnapshot"
+        },
+        "after": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/githubSnapshot"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "unchanged": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "postTriage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "accepted_as_draft_at",
+        "private_fork_created_at",
+        "fix_merged_at",
+        "public_branch_verified_at",
+        "package_released_at",
+        "metadata_completed_at",
+        "advisory_published_at",
+        "cve_requested_at",
+        "metadata_request"
+      ],
+      "properties": {
+        "accepted_as_draft_at": {
+          "$ref": "#/$defs/nullableTimestamp"
+        },
+        "private_fork_created_at": {
+          "$ref": "#/$defs/nullableTimestamp"
+        },
+        "fix_merged_at": {
+          "$ref": "#/$defs/nullableTimestamp"
+        },
+        "public_branch_verified_at": {
+          "$ref": "#/$defs/nullableTimestamp"
+        },
+        "package_released_at": {
+          "$ref": "#/$defs/nullableTimestamp"
+        },
+        "metadata_completed_at": {
+          "$ref": "#/$defs/nullableTimestamp"
+        },
+        "advisory_published_at": {
+          "$ref": "#/$defs/nullableTimestamp"
+        },
+        "cve_requested_at": {
+          "$ref": "#/$defs/nullableTimestamp"
+        },
+        "metadata_request": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "cvss_vector_string"
+              ],
+              "properties": {
+                "cvss_vector_string": {
+                  "type": "string",
+                  "pattern": "^CVSS:3\\.1/"
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "disclosure_exception": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "approved_by",
+            "approved_at",
+            "policy_basis",
+            "reason"
+          ],
+          "properties": {
+            "approved_by": {
+              "type": "string",
+              "minLength": 1
+            },
+            "approved_at": {
+              "$ref": "#/$defs/timestamp"
+            },
+            "policy_basis": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
