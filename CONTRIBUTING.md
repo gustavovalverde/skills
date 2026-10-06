@@ -19,6 +19,15 @@ claude plugin validate --strict .claude-plugin/plugin.json
 
 When changing a skill's trigger or instructions, try a request that should activate it and a nearby request that should not. The [review examples](docs/review-examples.json) supply sample inputs, including near misses between sibling skills. Check factual accuracy and usefulness; expected wording is not a test.
 
+To measure how often each example loads its expected skill in real Claude Code sessions, run:
+
+```sh
+python3 scripts/trigger_eval.py --ref origin/main
+python3 scripts/trigger_eval.py
+```
+
+Each run is a model session and consumes usage.
+
 Before releasing an installation change, check discovery and install in an empty temporary project.
 
 Add external sources to [the reference index](docs/references.md), including links cited inside individual skills. Preserve attribution and confirm redistribution rights; see [licensing](docs/provenance.md).
