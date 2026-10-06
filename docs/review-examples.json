@@ -525,5 +525,83 @@
     "expected_skills": [
       "backlog-triage"
     ]
+  },
+  {
+    "id": "advisory_new_report",
+    "request": "A vulnerability report just came in as a draft GitHub security advisory. Check whether we already handled it and what to do next.",
+    "facts": "The report claims the session cookie is still accepted after sign-out in version 3.4.1 and includes a curl transcript.",
+    "expected_skills": [
+      "advisory-triage"
+    ]
+  },
+  {
+    "id": "advisory_next",
+    "request": "Which security advisory should I look at next?",
+    "facts": "",
+    "expected_skills": [
+      "advisory-triage"
+    ]
+  },
+  {
+    "id": "advisory_is_it_real",
+    "request": "Is this reported issue a real vulnerability or expected behavior? The reporter says an organization admin can create an owner.",
+    "facts": "The project documents that admins can manage members. The default roles do not let admins assign the owner role.",
+    "expected_skills": [
+      "advisory-triage"
+    ]
+  },
+  {
+    "id": "advisory_draft_body",
+    "request": "Draft the advisory body and metadata from the accepted assessment.",
+    "facts": "The assessment is accepted. The fix shipped in 3.4.2 on the stable line and 4.0.0-beta.3 on the pre-release line.",
+    "expected_skills": [
+      "advisory-triage"
+    ]
+  },
+  {
+    "id": "advisory_ranges",
+    "request": "Are the affected version ranges on this published advisory still correct?",
+    "facts": "The advisory lists < 3.4.2 as affected. A 3.3.x backport line is still maintained.",
+    "expected_skills": [
+      "advisory-triage"
+    ]
+  },
+  {
+    "id": "near_security_code_review",
+    "request": "Review this diff for security problems before I merge it.",
+    "facts": "The diff changes how redirect URLs are validated.",
+    "expected_skills": []
+  },
+  {
+    "id": "near_security_fix_changeset",
+    "request": "Write the changeset for this security fix.",
+    "facts": "The fix makes redirect validation reject protocol-relative URLs. The advisory is not yet published.",
+    "expected_skills": [
+      "pr-writing"
+    ]
+  },
+  {
+    "id": "near_security_docs",
+    "request": "Update the docs page on redirect validation to describe the safer behavior.",
+    "facts": "The fix makes redirect validation reject protocol-relative URLs.",
+    "expected_skills": [
+      "docs-writing"
+    ]
+  },
+  {
+    "id": "advisory_fix_review",
+    "request": "Review this fix for the accepted advisory before we merge it.",
+    "facts": "The fix makes the token check run before the session is created. The advisory covers two affected routes; the patch changes one of them and adds a regression test.",
+    "expected_skills": [
+      "advisory-triage"
+    ]
+  },
+  {
+    "id": "advisory_release_grouping",
+    "request": "Which of our accepted advisories can ship in the next patch release, and which need a minor?",
+    "facts": "Three accepted findings have reviewed fixes. One adds a database column; one requires apps to update their client; one only rejects an unauthorized request.",
+    "expected_skills": [
+      "advisory-triage"
+    ]
   }
 ]

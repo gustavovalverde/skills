@@ -1,6 +1,6 @@
 # Steward
 
-Agent skills for looking after software projects: design and API decisions, code organization and naming, the documentation, pull requests, and interface text that go with them, and triage of issues and pull requests. They follow the [Agent Skills specification](https://agentskills.io/specification) and work with Claude Code, Codex, Cursor, and other supported agents.
+Agent skills for looking after software projects: design and API decisions, code organization and naming, the documentation, pull requests, and interface text that go with them, and triage of issues, pull requests, and security reports. They follow the [Agent Skills specification](https://agentskills.io/specification) and work with Claude Code, Codex, Cursor, and other supported agents.
 
 ## Install
 
@@ -44,6 +44,7 @@ Agents load a skill when your request matches it. You can also ask for one by na
 
 | Skill | Use it to | Example request |
 |---|---|---|
+| [advisory-triage](skills/advisory-triage/SKILL.md) | Take a security report to a human decision | “Screen this vulnerability report, check prior advisories and duplicates, and recommend the next step. Keep GitHub read-only.” |
 | [backlog-triage](skills/backlog-triage/SKILL.md) | Triage issues and pull requests | “Assess the next batch of open issues and their pull requests, find duplicates and competing fixes, and recommend actions. Keep GitHub read-only.” |
 
 ## How they work together
@@ -52,7 +53,7 @@ Each skill works on its own, so you can install only the ones you need. `softwar
 
 The writing skills stay independent. Ordinary replies and small wording fixes need none of them.
 
-The triage skills work in any GitHub repository. They read the repository's own instructions, and load any installed skill that profiles the repository, such as a team's contracts, packages, and branches.
+The triage skills work in any GitHub repository and hand work to each other: a security report found during backlog triage goes to `advisory-triage`, and a report that turns out to be ordinary engineering work goes back to `backlog-triage`. They read the repository's own instructions, and load any installed skill that profiles the repository, such as a team's contracts, packages, and branches.
 
 ## Customize
 

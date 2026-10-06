@@ -1,0 +1,4 @@
+interface:
+  display_name: "Advisory Triage"
+  short_description: "Move security reports to a human decision on evidence"
+  default_prompt: "Use $advisory-triage to screen this security report, check prior work and duplicates, and recommend the next step without changing GitHub."

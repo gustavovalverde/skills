@@ -1,0 +1,149 @@
+{
+  "$schema": "../case.schema.json",
+  "schema_version": "advisory-case/v2",
+  "process_version": "2.2.0",
+  "case_id": "replace-me",
+  "source": {
+    "type": "github_repository_advisory",
+    "url": null,
+    "github_state": "triage",
+    "title": "Replace with the report title",
+    "reporter": null,
+    "created_at": "1970-01-01T00:00:00Z",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "retrieved_at": "1970-01-01T00:00:00Z",
+    "acknowledgement_deadline": "1970-01-04T00:00:00Z",
+    "publicly_disclosed": null,
+    "active_exploitation": null,
+    "disclosure_deadline": null
+  },
+  "authorization": {
+    "github_read": "not_authorized",
+    "github_write": "not_authorized",
+    "local_artifact_write": "authorized",
+    "dynamic_validation": "not_authorized",
+    "remediation": "not_authorized",
+    "recorded_at": "1970-01-01T00:00:00Z",
+    "basis": "Replace with the authority granted for this run."
+  },
+  "repository": {
+    "github": null,
+    "path": "/absolute/path/to/checkout",
+    "security_policy_path": "SECURITY.md",
+    "stable_ref": "origin/main",
+    "stable_sha": "0000000000000000000000000000000000000000",
+    "prerelease_ref": null,
+    "prerelease_sha": null
+  },
+  "duplicate_assessment": {
+    "checked_at": "1970-01-01T00:00:00Z",
+    "queries": [],
+    "result": "unresolved",
+    "candidate_ids": [],
+    "rationale": "Duplicate search has not been completed."
+  },
+  "claims": [
+    {
+      "claim_id": "claim-001",
+      "title": "Replace with one independently testable allegation",
+      "technical_verdict": "unresolved",
+      "disposition": "clarify",
+      "branch_state": "not_applicable",
+      "confidence": "low",
+      "policy_basis": [
+        "SECURITY.md"
+      ],
+      "product_contract": {
+        "surface": "Replace with the affected package, plugin, endpoint, or feature.",
+        "delivery": "unknown",
+        "lifecycle": "unknown",
+        "default_enabled": null,
+        "production_support": "unknown",
+        "supported_environments": [
+          "unknown"
+        ],
+        "intended_capability": "State what users, integrators, or attackers are intentionally allowed to do.",
+        "security_guarantee": "State the security boundary promised within the supported use.",
+        "contract_evidence": [
+          "Complete the product-contract assessment using documentation, types, tests, history, shipped artifacts, or recorded maintainer decisions."
+        ],
+        "contract_violated": null,
+        "advisory_justification": "Explain why this is an advisory rather than expected behavior, misuse, a product bug, a documentation gap, or defense in depth."
+      },
+      "source": "unknown",
+      "control": "unknown",
+      "sink": "unknown",
+      "reachable_path": [],
+      "boundary": {
+        "product_surface": "unknown",
+        "source_trust": "unknown",
+        "boundary_crossed": null
+      },
+      "preconditions": [],
+      "impact": "unknown",
+      "evidence": [],
+      "counterevidence": [],
+      "proof_gaps": [
+        "Static assessment has not been completed."
+      ],
+      "runtime_validation": {
+        "status": "not_run",
+        "artifact": null,
+        "command": null,
+        "red_result": null,
+        "notes": "This skill does not execute reporter code or reproduce vulnerabilities. Record any bounded validation question and supplied evidence."
+      },
+      "version_assessment": {
+        "affected_ranges": [],
+        "fixed_versions": [],
+        "evidence": []
+      },
+      "cvss_v3_1": {
+        "vector": null,
+        "score": null,
+        "rationale": "Score only a confirmed claim."
+      },
+      "operational_priority": "none",
+      "recommended_next_step": "Complete static assessment."
+    }
+  ],
+  "overall_disposition": "clarify",
+  "case_status": "intake",
+  "reporter_response_draft": "Thank you for the report. We are reviewing the claimed boundary and will follow up with any specific evidence needed.",
+  "maintainer_decision": {
+    "status": "pending",
+    "decided_by": null,
+    "decided_at": null,
+    "notes": "No external or lifecycle action is authorized."
+  },
+  "github_snapshot": {
+    "before": {
+      "captured_at": "1970-01-01T00:00:00Z",
+      "state": "triage",
+      "updated_at": "1970-01-01T00:00:00Z",
+      "metadata_digest": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "after": null,
+    "unchanged": null
+  },
+  "post_triage": {
+    "accepted_as_draft_at": null,
+    "private_fork_created_at": null,
+    "fix_merged_at": null,
+    "public_branch_verified_at": null,
+    "package_released_at": null,
+    "metadata_completed_at": null,
+    "advisory_published_at": null,
+    "cve_requested_at": null,
+    "metadata_request": null
+  },
+  "last_triaged_at": "1970-01-01T00:00:00Z",
+  "continuity": {
+    "owner": null,
+    "next_action": "Read the live report, discussion, and prior assessments before assessing the product contract.",
+    "hold_reason": null,
+    "shared_record_url": null,
+    "shared_audience": null,
+    "last_reviewed_revision": null
+  }
+}
