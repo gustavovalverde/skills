@@ -1,0 +1,4 @@
+interface:
+  display_name: "Identifier Naming"
+  short_description: "Choose clear names and carry out safe renames"
+  default_prompt: "Use $identifier-naming to review these names and propagate the rename without changing public keys."

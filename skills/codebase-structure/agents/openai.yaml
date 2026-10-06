@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codebase Structure"
+  short_description: "Decide where code belongs and how to move it"
+  default_prompt: "Use $codebase-structure to decide where this feature belongs and what a move must preserve."
