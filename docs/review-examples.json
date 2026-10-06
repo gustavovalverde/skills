@@ -277,5 +277,97 @@
     "expected_skills": [
       "ui-copy"
     ]
+  },
+  {
+    "id": "near_readme_line_edit",
+    "request": "Tighten the wording of this README installation section without changing its structure.",
+    "facts": "The section has three paragraphs. The second paragraph repeats the prerequisite from the first and ends with an apology for the extra step. Commands and version numbers are correct.",
+    "expected_skills": [
+      "text-editing"
+    ]
+  },
+  {
+    "id": "editorial_email",
+    "request": "Make this customer announcement email shorter and clearer.",
+    "facts": "The draft announces that exports move to a new page on 1 March. It explains the internal migration in two paragraphs before stating what customers must do. Old export links redirect for 90 days.",
+    "expected_skills": [
+      "text-editing"
+    ]
+  },
+  {
+    "id": "editorial_feedback",
+    "request": "Give me feedback on this blog post draft before I publish it.",
+    "facts": "The post argues that connector-scoped ownership prevents duplicate imports. It cites one incident without a date and claims the change made imports faster, which no measurement supports.",
+    "expected_skills": [
+      "text-editing"
+    ]
+  },
+  {
+    "id": "near_adr_no_keyword",
+    "request": "Write up why we chose connector-scoped ownership so future maintainers don't reopen the debate.",
+    "facts": "Workspace-scoped records collided across connectors. Alternatives were a composite key and connector-scoped ownership. The composite key kept the shared index but required every caller to pass both IDs. Connector-scoped ownership was chosen; the migration is irreversible.",
+    "expected_skills": [
+      "docs-writing"
+    ]
+  },
+  {
+    "id": "near_api_reference_page",
+    "request": "Document the createClient options in the API reference.",
+    "facts": "createClient accepts endpoint (required string), timeoutMs (number, default 10000), and retry (boolean, default false). retry applies only to idempotent requests.",
+    "expected_skills": [
+      "docs-writing"
+    ]
+  },
+  {
+    "id": "commit_message",
+    "request": "Write a commit message for these staged changes.",
+    "facts": "The change clears the export failure state before scheduling a retry. Repository uses Conventional Commits. One file changed and a regression test was added.",
+    "expected_skills": [
+      "pr-writing"
+    ]
+  },
+  {
+    "id": "ui_form_errors",
+    "request": "Review the error messages in this checkout form.",
+    "facts": "Errors read: 'Invalid input', 'Something went wrong, please try again later', and 'Card declined'. The card field accepts 13 to 19 digits. A declined card cannot be retried with the same details.",
+    "expected_skills": [
+      "ui-copy"
+    ]
+  },
+  {
+    "id": "near_marketing_headline",
+    "request": "Write the hero headline and subheading for our pricing page.",
+    "facts": "Three plans exist. The marketing site is separate from the product interface.",
+    "expected_skills": []
+  },
+  {
+    "id": "near_rename_in_place",
+    "request": "Rename the helpers folder to invoice-totals; it only contains invoice calculations and nothing moves.",
+    "facts": "Four files import from helpers/ by relative path. No framework discovers the folder by name. The folder is not exported from the package.",
+    "expected_skills": [
+      "identifier-naming"
+    ]
+  },
+  {
+    "id": "near_move_across_packages",
+    "request": "Move the CSV parser from the web app into the shared package so the worker can use it.",
+    "facts": "The parser is pure and has no browser dependencies. The shared package is published internally with an exports map. The web app imports the parser from two files.",
+    "expected_skills": [
+      "codebase-structure"
+    ]
+  },
+  {
+    "id": "near_internal_module_shape",
+    "request": "Should this internal module expose a class or plain functions? Nothing outside the package imports it.",
+    "facts": "The module holds a connection pool and three query functions. Tests replace the pool with a fake. The package exports only a separate service entrypoint.",
+    "expected_skills": [
+      "software-design"
+    ]
+  },
+  {
+    "id": "near_code_review",
+    "request": "Review this diff for bugs before I merge it.",
+    "facts": "The diff changes retry scheduling in src/exports/retry.ts and adds one test.",
+    "expected_skills": []
   }
 ]

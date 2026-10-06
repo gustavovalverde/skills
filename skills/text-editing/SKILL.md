@@ -1,21 +1,31 @@
 ---
 name: text-editing
-description: Review or revise existing prose for clarity, organization, readability, and audience fit while preserving meaning and evidence. Use for requested editorial work, not ordinary replies, translations, or mechanical corrections.
+description: Review or revise an existing draft for clarity, organization, readability, and audience fit, such as emails, announcements, essays, reports, or documentation passages. Use when the user asks to edit, tighten, simplify, or give feedback on prose that already exists. Not for writing new documentation (docs-writing), interface text (ui-copy), translations, ordinary replies, or spelling fixes.
 license: MIT
 ---
 
 # Edit text
 
-Preserve the requested scope: a review needs actionable findings; a rewrite needs usable revised text. Infer the audience and purpose from the draft and request. Ask only when an unresolved distinction would materially affect the result.
+Improve how a draft serves its reader while keeping its meaning, evidence, and scope.
 
-Address audience mismatch, unsupported claims, missing conditions, and organization before sentence polish. Distinguish improving wording from changing the underlying argument. Flag factual uncertainty instead of silently resolving it.
+## Approach
 
-Keep exact technical terms, citations, version boundaries, and qualifications needed to understand or act. Do not fill gaps with plausible product behavior or facts from an unrelated example. Follow the project's language conventions; punctuation and sentence lengths are not universal quality rules.
+Preserve the requested scope: a review needs actionable findings, and a rewrite needs usable revised text. Infer the audience and purpose from the draft and request. Ask only when an unresolved distinction would materially affect the result.
 
-Keep related reasoning together, split overloaded sentences, and remove repetition without losing relationships between ideas. Short labels or steps need not become narrative paragraphs. Check what each paragraph contributes beyond the preceding material. Remove it when cutting it loses no needed meaning, evidence, orientation, or emphasis. End when the reader’s purpose is fulfilled, even if source material remains unused. Leave unaffected sections alone.
+Address audience mismatch, unsupported claims, missing conditions, and organization before sentence polish. Distinguish improving wording from changing the underlying argument, and flag factual uncertainty instead of silently resolving it.
 
-Remove commentary about drafting while retaining operational provenance. “As requested, phase two documents the retry setting” usually adds no value; a commit hash identifying a reproduced result may be essential.
+Keep related reasoning together, split overloaded sentences, and remove repetition without losing relationships between ideas. Check what each paragraph contributes beyond the preceding material, and remove it when cutting loses no needed meaning, evidence, orientation, or emphasis. End when the reader's purpose is fulfilled, even if source material remains unused. Leave unaffected sections alone.
 
-For a review, prioritize the largest obstacles and give concrete replacements. For a rewrite, provide the revision and identify material ambiguities that remain.
+## Gotchas
 
-Consult [readability evidence](references/readability.md) when measurements or comprehension checks are useful, and [source guidance](references/sources.md) for attribution. Use measurements only when requested or when they resolve a specific uncertainty with an appropriate available tool. Do not invent scores or require software installation for qualitative review.
+- Exact technical terms, citations, version boundaries, and qualifications can look like clutter. Keep the ones the reader needs to understand or act.
+- Filling a gap with plausible product behavior, or with facts from an unrelated example, invents content.
+- Punctuation habits and sentence-length targets are project conventions, not universal quality rules. Follow the project's.
+- Short labels or steps need not become narrative paragraphs.
+- Commentary about drafting adds nothing ("As requested, phase two documents the retry setting"), while operational provenance can be essential, such as a commit hash identifying a reproduced result.
+
+## Finish
+
+For a review, lead with the largest obstacles and give concrete replacements. For a rewrite, provide the revision and name the material ambiguities that remain.
+
+Read [readability evidence](references/readability.md) when the user asks for measurements or a comprehension check, or when a measurement would resolve a specific uncertainty. Report scores only from a tool you actually ran.

@@ -27,7 +27,7 @@ Use the target language's conventions for interfaces, async methods, constants, 
 
 ## Propagate and verify
 
-Use symbol-aware rename tools when available, then inspect textual references that they cannot resolve. Search affected source, tests, mocks, documentation, configuration, scripts, and generated inputs. For paths, also inspect package exports, glob patterns, dynamic loading, and framework-required filenames; a symbol-aware rename may not update them. Update generated outputs through the normal generator where appropriate.
+Use symbol-aware rename tools when available, then inspect textual references that they cannot resolve. Search affected source, tests, mocks, documentation, configuration, scripts, and generated inputs. For paths, also inspect package exports, routes, glob patterns, dynamic loading, and framework-required filenames; a symbol-aware rename may not update them. Update generated outputs through the normal generator where appropriate.
 
 Classify remaining uses of the old name instead of requiring zero matches. Compatibility fixtures, external keys, migration documentation, and unrelated symbols may correctly retain it. Avoid global replacement of a common word across distinct domains.
 
