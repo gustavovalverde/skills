@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI Copy"
+  short_description: "Write the least interface text users need"
+  default_prompt: "Use $ui-copy to review this screen's labels and errors and remove text that repeats the controls."

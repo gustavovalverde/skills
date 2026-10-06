@@ -7,7 +7,8 @@
     {
       "name": "skills",
       "source": "./",
-      "description": "Assess architecture and public API design, and write clear documentation, change descriptions, prose, and interface copy."
+      "description": "Assess architecture and public API design, and write clear documentation, change descriptions, prose, and interface copy.",
+      "category": "productivity"
     }
   ],
   "metadata": {

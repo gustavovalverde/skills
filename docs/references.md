@@ -27,6 +27,14 @@ Sources for the skills' writing guidance and installation instructions. Choose r
 - [W3C form instructions](https://www.w3.org/WAI/tutorials/forms/instructions/): visible labels and usable instructions.
 - [W3C user notifications](https://www.w3.org/WAI/tutorials/forms/notifications/): clear feedback and guidance to correct errors.
 
+## Skill authoring
+
+- [Agent Skills specification](https://agentskills.io/specification): the portable file format, including frontmatter fields, naming rules, and progressive disclosure.
+- [Agent Skills: best practices](https://agentskills.io/skill-creation/best-practices): gotchas sections, defaults instead of menus, and instructions calibrated to how fragile a task is.
+- [Agent Skills: optimizing descriptions](https://agentskills.io/skill-creation/optimizing-descriptions): trigger testing with near-miss requests and separate validation sets.
+- [Agent Skills: evaluating skills](https://agentskills.io/skill-creation/evaluating-skills): comparing runs with and without a skill and grading on concrete evidence.
+- [Superpowers: writing skills](https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md): descriptions that state triggers without summarizing the procedure, and matching the form of guidance to the kind of failure. Its mandatory-invocation style is not adopted here.
+
 ## Skill design and explanation
 
 - [HumanLayer: show-me](https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md): choose a compact representation for the question, use a focused diff when context is familiar, and show a complete example when omitted context would hide ownership or order. Place visuals beside their supporting explanation.

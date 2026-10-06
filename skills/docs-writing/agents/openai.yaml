@@ -1,0 +1,4 @@
+interface:
+  display_name: "Docs Writing"
+  short_description: "Write documentation around the reader's task"
+  default_prompt: "Use $docs-writing to write a setup guide with prerequisites, a working example, and the expected result."

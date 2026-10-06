@@ -1,0 +1,4 @@
+interface:
+  display_name: "Software Design"
+  short_description: "Plan features and refactors from caller usage"
+  default_prompt: "Use $software-design to plan this feature and identify the first useful implementation slice."
