@@ -75,7 +75,9 @@ A PR can be declined because it contradicts the supported contract or implements
 
 Keep closure comments short and truthful:
 
-> Closed as duplicate of #CANONICAL. Thank you for the report.
+> Closed as a duplicate of #CANONICAL. This issue is linked to the canonical one for tracking. Thank you for the report.
+
+When the reports differ slightly but share the material scope, write "duplicate of, or very similar to" instead.
 
 > Fixed by #PR [verified availability, if useful]. Thank you for the report.
 
