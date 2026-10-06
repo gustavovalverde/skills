@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "repo": "OWNER/REPO",
+  "id": "GROUP_ID",
+  "coordinator": "",
+  "members": [],
+  "criteria": [],
+  "evidence": [],
+  "coverage": [],
+  "canonical_issue": null,
+  "selected_prs": [],
+  "decisions": [],
+  "reconciliation": {
+    "status": "pending",
+    "rationale": "",
+    "scope_decisions": [],
+    "unresolved_conflicts": []
+  },
+  "verification": {
+    "reviewer": "",
+    "result_revision": "",
+    "verdict": "changes_needed",
+    "pending": true
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "steward",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Assess architecture and public API design, and write clear documentation, change descriptions, prose, and interface copy.",
   "author": {
     "name": "gustavovalverde"
