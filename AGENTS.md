@@ -54,7 +54,7 @@ Each skill must work when installed alone.
 
 - Keep references one level deep and link each one from `SKILL.md`.
 - Use `examples.md` for decision examples that contrast a tempting change with the right call.
-- Add a script under `scripts/` when an operation is deterministic and easy to get wrong in prose, such as building a commit-pinned link. Scripts use only the Python standard library and fail with an actionable message instead of guessing.
+- Add a script under `scripts/` when an operation is deterministic and easy to get wrong in prose, such as building a commit-pinned link. Scripts run without installing packages, on the Python 3 standard library or Node.js 20+ built-ins, and fail with an actionable message instead of guessing. Ship offline tests beside any script that holds logic, as `*.test.mjs` for `node --test` or a Python test.
 - Keep `sources.md` for attribution and applicability limits. Link it from `SKILL.md` only when the agent needs it to complete the task.
 - Links inside a skill must resolve when the skill is installed alone. Add every external link to `docs/references.md` as well.
 
