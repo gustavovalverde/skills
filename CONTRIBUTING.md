@@ -8,7 +8,13 @@ After any change, run:
 python3 scripts/check.py
 ```
 
-The script checks skill frontmatter, body length, reference links, Codex metadata, license copies, external references, manifest consistency, and that the plugin version changed when skills did.
+The script checks skill frontmatter, body length, reference links, Codex metadata, license copies, external references, manifest consistency, and that the plugin version changed when skills did. Run the helper tests with:
+
+```sh
+find skills -name '*.test.mjs' -print0 | xargs -0 -r node --test
+```
+
+GitHub Actions runs both on every pull request with Node.js 20 and 24.
 
 After changing Claude plugin manifests, also run:
 
