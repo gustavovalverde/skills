@@ -1,23 +1,41 @@
 ---
 name: software-design
-description: Plan a feature or substantial refactor, or assess software design across interfaces, ownership, and module boundaries. Use when implementation needs design decisions; routine edits and execution of an already-settled plan do not need a new design review.
+description: Plan a feature or substantial refactor, or assess a design's interfaces, state ownership, module boundaries, abstractions, and error handling. Use when implementation needs decisions that are still open, when the user asks how to approach or structure a change, how an internal module should expose its behavior, or whether an abstraction or dependency earns its place. Not for routine edits, executing an approved plan, or a question only about public API usage, file placement, or naming.
 license: MIT
 ---
 
 # Design software
 
+Work from a representative user task toward the implementation, and compare the simplest viable design with the smallest useful alternative before changing structure.
+
+## Approach
+
 Start with the requested outcome, constraints, and decisions still open. Inspect relevant code, callers, and tests before judging an existing design. For new software, separate supplied requirements from assumptions. When executing an approved plan, check changed assumptions and proceed; reopen only decisions that new evidence undermines.
 
-Work from a representative user task toward the implementation. Establish the domain concepts and observable success, failure, and unknown outcomes. Sketch the common usage, then trace state ownership, invariants, and lifecycle or transaction boundaries. Iterate between usage and ownership before settling file placement and names. Keep user-significant policy explicit while hiding coordination callers should not need to manage.
+Establish the domain concepts and the observable success, failure, and unknown outcomes. Sketch the common usage, then trace state ownership, invariants, and lifecycle or transaction boundaries. Iterate between usage and ownership before settling file placement and names. Keep user-significant policy explicit while hiding coordination callers should not need to manage.
 
-Compare the current or simplest viable design with the smallest useful alternative. Include leaving the structure unchanged. A single implementation, long function, conditional, or unfamiliar convention is not evidence of a defect. Consider what callers must understand, where maintainers must navigate, and which changes require coordination. These are qualitative questions, not a complexity score. Preserve security, resource ownership, transaction, and compatibility boundaries when simplifying.
+Compare the current or simplest design with the smallest useful alternative, including leaving the structure unchanged. Ask what callers must understand, where maintainers must navigate, and which changes require coordination. These are qualitative questions, not a complexity score. Preserve security, resource ownership, transaction, and compatibility boundaries when simplifying.
 
-Use focused help only for decisions that need it. If available, `public-api-design` examines developer-facing usage and compatibility, `codebase-structure` examines placement and moves, and `identifier-naming` examines ambiguous domain vocabulary and renames. A focused request can use one of those skills directly. Do not load all of them as a checklist; this workflow also works on its own.
+This workflow is complete on its own. When one decision needs more depth, use the focused skill for it when available, and pass along what is already established:
 
-Make the result proportional to the task: explain the decision, supporting evidence, costs, and unresolved questions. Separate demonstrated failures from tradeoffs and preferences. Identify the smallest useful implementation slice and the checks that would establish its behavior and contract. An assessment does not require code changes or a separate design document. When implementation is requested, preserve behavior outside the agreed change and verify affected consumers and failure paths.
+- `public-api-design` for developer-facing usage and compatibility, with the representative task and usage sketch.
+- `codebase-structure` for placement and moves, with the settled ownership.
+- `identifier-naming` for disputed vocabulary or renames, with the domain concepts.
+- `docs-writing` when the user asks to record the decision as an ADR or proposal, with the decision, alternatives, and evidence.
 
-Read supporting references only when needed:
+## Gotchas
+
+- A single implementation, long function, conditional, or unfamiliar convention is not evidence of a defect.
+- One implementation can justify an interface when it isolates a dependency or makes behavior testable.
+- Similar code can encode independent policies. Sharing it can couple changes that should stay separate.
+- Catching every storage error and returning `null` turns an outage into "not found".
+- Combining modules cannot make a database write and an email send commit atomically.
+
+## Finish
+
+Make the result proportional to the task: the decision, supporting evidence, costs, and unresolved questions, with demonstrated failures separated from tradeoffs and preferences. Identify the smallest useful implementation slice and the checks that would establish its behavior and contract. An assessment can end there. When implementation is requested, preserve behavior outside the agreed change and verify affected consumers and failure paths.
+
+## References
 
 - [Principles and tradeoffs](references/principles.md) when deciding whether an abstraction, dependency, or module boundary helps.
 - [Decision examples](references/examples.md) for concrete comparisons and scoping a first implementation slice.
-- [Sources and scope](references/sources.md) for attribution or deeper study. Routine design work does not require fetching external sources.
