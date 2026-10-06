@@ -44,7 +44,7 @@ Run inside a Claude Code session:
 /plugin install steward@gustavovalverde-skills
 ```
 
-Start a fresh session and invoke a skill, such as `/steward:software-design` or `/steward:docs-writing`. See the [README](../README.md#try-a-skill) for the full selection.
+Start a fresh session and invoke a skill, such as `/steward:software-design` or `/steward:docs-writing`. See the [README](../README.md#skills) for the full selection.
 
 ## Earlier plugin name
 
@@ -57,4 +57,4 @@ codex plugin add steward@gustavovalverde-skills
 
 ## Check the result
 
-Check that the packaged skills appear, then try an example from the [README](../README.md#try-a-skill). If skills appear twice, remove one installation route.
+Check that the packaged skills appear, then try an example from the [README](../README.md#skills). If skills appear twice, remove one installation route.
