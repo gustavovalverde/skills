@@ -30,7 +30,7 @@ Run in your terminal:
 
 ```sh
 codex plugin marketplace add /path/to/skills
-codex plugin add skills@gustavovalverde-skills
+codex plugin add steward@gustavovalverde-skills
 ```
 
 Start a fresh task and find the installed skills in the skill picker.
@@ -41,10 +41,19 @@ Run inside a Claude Code session:
 
 ```text
 /plugin marketplace add /path/to/skills
-/plugin install skills@gustavovalverde-skills
+/plugin install steward@gustavovalverde-skills
 ```
 
-Start a fresh session and invoke a skill, such as `/skills:software-design` or `/skills:docs-writing`. See the [README](../README.md#try-a-skill) for the full selection.
+Start a fresh session and invoke a skill, such as `/steward:software-design` or `/steward:docs-writing`. See the [README](../README.md#try-a-skill) for the full selection.
+
+## Earlier plugin name
+
+The plugin was previously named `skills`. Claude Code moves existing installs to `steward` on the next marketplace sync. In Codex, remove the old plugin and add the new one:
+
+```sh
+codex plugin remove skills@gustavovalverde-skills
+codex plugin add steward@gustavovalverde-skills
+```
 
 ## Check the result
 

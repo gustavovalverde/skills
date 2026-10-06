@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "name": "skills",
+      "name": "steward",
       "source": "./",
       "description": "Assess architecture and public API design, and write clear documentation, change descriptions, prose, and interface copy.",
       "category": "productivity"
@@ -13,5 +13,8 @@
   ],
   "metadata": {
     "description": "Focused skills for clear writing and maintainable repository work."
+  },
+  "renames": {
+    "skills": "steward"
   }
 }
