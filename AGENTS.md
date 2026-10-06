@@ -70,7 +70,7 @@ Each skill must work when installed alone.
 
 - Run `python3 scripts/check.py` after every change. It enforces the frontmatter, length, linking, metadata, license, and version rules above.
 - Run `claude plugin validate --strict` on both Claude manifests after changing them.
-- Before changing a description, try the examples in `docs/review-examples.json` for that skill and its siblings, including near misses that share keywords but need a different skill or none. Run each example several times, because triggering varies between runs. Copies of these skills installed elsewhere on the machine compete with the ones under test: in Claude Code, copy the skills under test into a temporary project's `.claude/skills/` and run `claude -p --setting-sources project` there, which skips user-level skills and instructions.
+- Before and after changing a description, run `python3 scripts/trigger_eval.py` on the examples in `docs/review-examples.json`, which include near misses that share keywords but need a different skill or none. It runs each example several times in isolated Claude Code sessions, because triggering varies between runs and installed copies of these skills would otherwise compete. Use `--ref origin/main` for the baseline and `--with-installed` to include your other skills as competitors.
 - Check a description change against a few fresh requests that were not used to tune it, so the wording generalizes instead of matching the examples.
 - Before adding guidance, run the relevant examples with and without the skill. Keep guidance that changes the result and remove guidance that does not.
 - When an agent needs correcting while using a skill, add the correction as a gotcha.
