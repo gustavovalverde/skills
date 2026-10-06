@@ -493,5 +493,37 @@
     "request": "What's the difference between a barrel file and direct imports?",
     "facts": "",
     "expected_skills": []
+  },
+  {
+    "id": "backlog_single_duplicate",
+    "request": "Is this GitHub issue a duplicate of #4100? Two open pull requests also try to fix it.",
+    "facts": "Issue #4212 reports that magic-link sign-in fails when the email has uppercase letters. #4100 reports case-sensitive email lookup during sign-in. Pull requests #4230 and #4241 both lowercase emails, in different places.",
+    "expected_skills": [
+      "backlog-triage"
+    ]
+  },
+  {
+    "id": "backlog_next_batch",
+    "request": "Triage the next batch of open issues in example-org/example-lib and recommend which ones to close.",
+    "facts": "",
+    "expected_skills": [
+      "backlog-triage"
+    ]
+  },
+  {
+    "id": "backlog_competing_prs",
+    "request": "Two pull requests fix the same bug in different ways. Which one should we merge, and what should happen to the other?",
+    "facts": "Pull request #310 adds a guard in the request handler. Pull request #322 fixes the parser that produced the bad value and adds a regression test. Both reference issue #305.",
+    "expected_skills": [
+      "backlog-triage"
+    ]
+  },
+  {
+    "id": "backlog_organize_area",
+    "request": "Organize these twelve OAuth issues with issue types, a tracker, and blocking links where they really depend on each other.",
+    "facts": "Three issues share a token refresh bug; two request new providers; one is a documentation gap.",
+    "expected_skills": [
+      "backlog-triage"
+    ]
   }
 ]

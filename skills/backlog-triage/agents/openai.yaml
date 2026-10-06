@@ -1,0 +1,4 @@
+interface:
+  display_name: "Backlog Triage"
+  short_description: "Reconcile issues, PRs, and native GitHub organization"
+  default_prompt: "Use $backlog-triage to assess this issue and pull request batch and recommend evidence-backed next actions without changing GitHub."

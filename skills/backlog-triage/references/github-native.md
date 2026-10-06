@@ -1,0 +1,39 @@
+# Native GitHub organization and updates
+
+Check actual repository capabilities, enabled types, installed CLI flags, authentication, permissions, and Project workflows. Account for GitHub Enterprise host differences. CLI authentication is specific to the executing host; browser sign-in or an auth refresh on another machine does not update this CLI. Never display a token to diagnose access.
+
+## Map each decision to its primitive
+
+| Need | Primitive and boundary |
+| --- | --- |
+| Kind of issue | Native Issue Type. Inspect available types; Bug, Feature, and Task are typical, not a fixed universal set. PRs remain implementation candidates. [Issue type API](https://docs.github.com/en/rest/repos/issue-types) |
+| Area or ownership | Existing area labels. Read definitions and preserve valid unrelated labels. A Bug type, assignee, or area label does not mean accepted or ready. |
+| Shared context | Native `relatesTo`. It does not claim duplicate scope or ordering. [Issue relationship API](https://docs.github.com/en/graphql/reference/issues#addrelatesto) |
+| Bounded multi-part outcome | Parent issue and sub-issues, with acceptance criteria and child responsibilities. Closing a parent does not authorize cascading child closures; completion still needs criterion review. [Sub-issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) |
+| Genuine prerequisite | Native blocked-by / blocking. State why the dependent behavior cannot be delivered first. Shared subject, files, or parentage are insufficient. [Dependencies](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies) |
+| Implementation | Development link or native closing reference. Preserve textual references too: closing keywords are interpreted for the default branch. Linking or automatic closure does not prove complete behavior or release. [PR linking](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue) |
+| Duplicate issue | Native duplicate state and canonical reference, plus a brief explanation. A normal comment alone is insufficient proof of the native link. [Issue update API](https://docs.github.com/en/rest/issues/issues#update-an-issue) |
+| Release or delivery commitment | Milestone for a committed target. Use labels and Project views for a broad area. [Milestones](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones) |
+| Progress view | Project fields, filters, and workflows. Reuse native metadata instead of creating parallel fields. [Built-in workflows](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations) |
+
+Infer a tracker from related requirements, an existing architectural constraint, or a bounded refactor. Search existing parents first. A tracker states the outcome, constraints, acceptance criteria, relevant existing work, and dependencies. A broad area can remain a Project view without a new umbrella issue. Potential breaking changes require a compatibility and migration decision.
+
+## Minimize manual Project transitions
+
+Inspect workflows before proposing statuses. Each retained status needs a distinct useful meaning and an owner or supported transition. Combine Intake and Backlog when no useful decision separates them. Ready, if used, represents a real readiness decision; an assignee or open PR is insufficient. In progress and In review need actual work/review evidence or a verified automation, rather than inference from labels.
+
+Built-in workflows can set Done after closure or merge, and can also close issues when Project status changes if configured. Inspect that direction before editing Status. Auto-add handles matching new or updated items; it does not initially backfill existing matches and supports a limited filter vocabulary. Import existing items deliberately and check that standalone PRs are included. [Workflow behavior](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations), [auto-add behavior](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically).
+
+## Prepare and apply scoped operations
+
+1. Prepare a plan containing each target, desired change, rationale, baseline state, evidence revision, native IDs, any necessary brief comment, and the user authority covering that operation. Match actual CLI/API support; use structured JSON or body files for payloads. Analysis, skill invocation, or local readiness does not provide authority for a remote mutation. Valid prior authority remains sufficient within its scope. Ask only for a missing material decision or action authority, after preparing this reviewable plan.
+2. Immediately before applying, refresh affected issues, PR heads, relevant discussion, and relationships. Reassess material drift. Preserve unrelated labels and fields; use targeted additions/removals rather than stale whole-set replacements. Recheck the intended canonical and dependency direction.
+3. Transfer only necessary missing context to its destination, confirm that write, then perform the authorized closure. Do not post an extra canonical comment when the information already exists. Closing an issue and closing a superseded PR are separate operations.
+4. Apply in bounded batches, keep per-operation responses, and query actual native state afterward. Verify type, relationship direction, parent, Development link, state reason, or duplicate reference, as applicable. A successful response is insufficient when the requested field can be ignored or dropped. Verify comments and closures as distinct operations. If a closure depends on a required comment or context transfer, confirm that prerequisite write before closing; an ambiguous prerequisite blocks that dependent operation until reconciled.
+5. On timeout or partial failure, refetch actual state and reconcile receipts before retrying. Do not repost comments blindly or recreate a deliberately deleted comment. Do not post progress announcements, or claim a fix, transfer, or release without evidence. Continue independent groups while preserving the failed operation's exact status and next action.
+
+Resolve identities from live objects. REST duplicate closure uses `state: "closed"`, `state_reason: "duplicate"`, and `duplicate_issue_id` set to the canonical issue's REST ID, not its displayed number. GraphQL mutations use node IDs; sub-issue REST operations likewise use REST IDs. Verify the resulting canonical reference or native event. Do not use one ID representation as another. [Issue API](https://docs.github.com/en/rest/issues/issues), [GraphQL issue schema](https://docs.github.com/en/graphql/reference/issues).
+
+The ledger helper performs no GitHub reads or writes and is not an authorization service. Use the supported connector or `gh` for these operations, and store plans and receipts with the local work records. Pushes, reviews, merges, releases, and deployments remain separate tasks unless explicitly requested.
+
+Ledger action names describe recommendations, not API payloads. PRs have no general native superseded field. `close_superseded` uses the ordinary PR-close operation and a brief reference to the selected PR; `close_not_planned` uses PR closure with its actual rationale. Do not send issue-only state-reason or duplicate fields to a PR endpoint. [PR update API](https://docs.github.com/en/rest/pulls/pulls#update-a-pull-request).

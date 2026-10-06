@@ -1,6 +1,6 @@
 # Steward
 
-Agent skills for looking after software projects: design and API decisions, code organization and naming, and the documentation, pull requests, and interface text that go with them. They follow the [Agent Skills specification](https://agentskills.io/specification) and work with Claude Code, Codex, Cursor, and other supported agents.
+Agent skills for looking after software projects: design and API decisions, code organization and naming, the documentation, pull requests, and interface text that go with them, and triage of issues and pull requests. They follow the [Agent Skills specification](https://agentskills.io/specification) and work with Claude Code, Codex, Cursor, and other supported agents.
 
 ## Install
 
@@ -40,11 +40,19 @@ Agents load a skill when your request matches it. You can also ask for one by na
 | [ui-copy](skills/ui-copy/SKILL.md) | Write the least interface text users need | “Review this screen's labels and errors. Remove hints that repeat the controls.” |
 | [text-editing](skills/text-editing/SKILL.md) | Improve an existing draft | “Make this draft easier to follow while preserving its evidence and caveats.” |
 
+### Repository triage
+
+| Skill | Use it to | Example request |
+|---|---|---|
+| [backlog-triage](skills/backlog-triage/SKILL.md) | Triage issues and pull requests | “Assess the next batch of open issues and their pull requests, find duplicates and competing fixes, and recommend actions. Keep GitHub read-only.” |
+
 ## How they work together
 
 Each skill works on its own, so you can install only the ones you need. `software-design` handles decisions that span several concerns. When one question needs more depth, it hands the work to `public-api-design`, `codebase-structure`, or `identifier-naming`, passing along what it has already established, and to `docs-writing` when you want the decision recorded. `codebase-structure` and `identifier-naming` hand questions to each other: placement first, then names.
 
 The writing skills stay independent. Ordinary replies and small wording fixes need none of them.
+
+The triage skills work in any GitHub repository. They read the repository's own instructions, and load any installed skill that profiles the repository, such as a team's contracts, packages, and branches.
 
 ## Customize
 

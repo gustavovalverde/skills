@@ -77,6 +77,24 @@ Sources for the skills' writing guidance and installation instructions. Choose r
 - [Martin Fowler: command–query separation](https://martinfowler.com/bliki/CommandQuerySeparation.html) distinguishes observation from state change and discusses practical exceptions. It does not require splitting an atomic mutation that returns a useful result.
 - [Artem Zakirullin: Cognitive load is what matters](https://github.com/zakirullin/cognitive-load) offers practitioner examples of reducing the effort of interpreting code. Treat these as qualitative design arguments, not proof of fixed naming lengths, memory limits, or agent-search performance.
 
+## Repository triage
+
+- [GitHub CLI: gh api](https://cli.github.com/manual/gh_api)
+- [GitHub GraphQL: issues](https://docs.github.com/en/graphql/reference/issues)
+- [GitHub GraphQL: related issues](https://docs.github.com/en/graphql/reference/issues#addrelatesto)
+- [GitHub Docs: adding Project items automatically](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)
+- [GitHub Docs: Project built-in automations](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)
+- [GitHub Docs: sub-issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues)
+- [GitHub Docs: issue dependencies](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies)
+- [GitHub Docs: linking a pull request to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue)
+- [GitHub Docs: milestones](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones)
+- [GitHub REST: issues](https://docs.github.com/en/rest/issues/issues)
+- [GitHub REST: update an issue](https://docs.github.com/en/rest/issues/issues#update-an-issue)
+- [GitHub REST: update a pull request](https://docs.github.com/en/rest/pulls/pulls#update-a-pull-request)
+- [GitHub REST: issue types](https://docs.github.com/en/rest/repos/issue-types)
+
+GitHub's documentation describes the native primitives and API shapes the triage skills use; check the current page before relying on an exact field name.
+
 ## Installation
 
 - [Skills CLI](https://github.com/vercel-labs/skills): installation from repositories and local directories.
