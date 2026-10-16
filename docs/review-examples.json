@@ -603,5 +603,54 @@
     "expected_skills": [
       "advisory-triage"
     ]
+  },
+  {
+    "id": "compose_detail_actions",
+    "request": "Add refund and cancel to the payment detail page.",
+    "facts": "The page shows amount, status, customer, and a Copy link primary button. The design system has a DropdownMenu and a Button with default, outline, and destructive variants. Refund and cancel are each used on a small share of payments.",
+    "expected_skills": [
+      "ui-composition"
+    ]
+  },
+  {
+    "id": "compose_status_filter",
+    "request": "Let merchants filter the payments table by status.",
+    "facts": "Statuses are Paid, Pending, Failed, and Refunded. The table uses the shadcn data-table pattern. The current draft adds four large buttons above the table.",
+    "expected_skills": [
+      "ui-composition"
+    ]
+  },
+  {
+    "id": "compose_onboarding_form",
+    "request": "Build the business details step of onboarding.",
+    "facts": "The step needs legal name, tax ID, and phone. The tax ID lookup returns the legal name. Address is required only before going live. The project uses react-hook-form with zod.",
+    "expected_skills": [
+      "ui-composition"
+    ]
+  },
+  {
+    "id": "compose_pricing_cards",
+    "request": "Make the pricing page easier to compare.",
+    "facts": "Three plans each list twelve features, eight of them shared by every plan, and every price repeats 'taxes not included'.",
+    "expected_skills": [
+      "ui-composition",
+      "ui-copy"
+    ]
+  },
+  {
+    "id": "near_api_boundary",
+    "request": "Decide whether the payments dashboard should call the API directly or through a server action.",
+    "facts": "The dashboard is a Next.js App Router page. Data comes from an internal REST API.",
+    "expected_skills": [
+      "software-design"
+    ]
+  },
+  {
+    "id": "ui_plan_card_copy",
+    "request": "Tighten the text on the Pro plan card.",
+    "facts": "Card text: 'Pro plan. The perfect plan for growing businesses that want more. Includes everything in Basic, plus more features. Price shown does not include taxes.' The pricing page footer already states taxes.",
+    "expected_skills": [
+      "ui-copy"
+    ]
   }
 ]
