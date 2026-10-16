@@ -37,6 +37,7 @@ Agents load a skill when your request matches it. You can also ask for one by na
 |---|---|---|
 | [docs-writing](skills/docs-writing/SKILL.md) | Write documentation and decision records | “Write a setup guide with prerequisites, a working example, and expected results.” |
 | [pr-writing](skills/pr-writing/SKILL.md) | Describe a change for reviewers or users | “Write the PR description from this diff. Explain the behavior change and review risks.” |
+| [ui-composition](skills/ui-composition/SKILL.md) | Build screens from existing components with less | “Add refund and cancel to the payment detail page. Keep one primary action and reuse the design system.” |
 | [ui-copy](skills/ui-copy/SKILL.md) | Write the least interface text users need | “Review this screen's labels and errors. Remove hints that repeat the controls.” |
 | [text-editing](skills/text-editing/SKILL.md) | Improve an existing draft | “Make this draft easier to follow while preserving its evidence and caveats.” |
 

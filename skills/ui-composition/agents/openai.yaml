@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI Composition"
+  short_description: "Build screens from existing components with less"
+  default_prompt: "Use $ui-composition to rebuild this payments screen from the design system with one clear primary action and fewer elements."
