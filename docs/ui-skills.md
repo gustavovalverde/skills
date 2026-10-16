@@ -20,7 +20,7 @@ Which skills to load for product interface work, where they come from, and which
 Two patterns explain most of the repetition:
 
 - In 40 of 70 copy corrections, `ui-copy` was already loaded. Skills loaded beside it pushed the other way: one asks for what, why, and how in every message plus three alternatives, one invents copy and placeholder content, and one requires Title Case.
-- About 30% of the corrections happened in sessions where no UI skill was installed for the agent in use.
+- Codex sessions loaded the same skills, conflicting ones included, because Codex reads the global skills folder that the skills CLI installs into.
 
 ## Load
 
@@ -34,7 +34,9 @@ Two patterns explain most of the repetition:
 | `better-layout` | `jakubkrehel/skills` | By name, for responsive, zoom, and right-to-left checks |
 | `copywriting` | `coreyhaines31/marketingskills` | By name for a first landing-page draft, followed by the `ui-copy` deletion pass |
 
-In Claude Code, a skill in `~/.claude/skills` shadows a project skill with the same name, and `skillOverrides` set to `user-invocable-only` keeps a skill available by name without loading it automatically. Install the automatic skills where every agent the team uses reads them, including Codex.
+`npx skills add -g` installs into `~/.agents/skills`, which Codex reads directly and Claude Code reads through a symlink in `~/.claude/skills`, so one install or removal reaches both agents.
+
+In Claude Code, a skill in `~/.claude/skills` shadows a project skill with the same name, and `skillOverrides` set to `user-invocable-only` keeps a skill available by name without loading it automatically; plugin skills can only be turned off with their whole plugin. In Codex, a `[[skills.config]]` entry with `enabled = false` in `~/.codex/config.toml` turns off one skill by name or path, and a project cannot turn off a user skill.
 
 ## Keep out of product work
 
