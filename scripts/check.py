@@ -49,6 +49,9 @@ for skill in sorted(p for p in (root / "skills").iterdir() if p.is_dir()):
         errors.append(f"{where}/SKILL.md: description must be 1 to 1024 characters")
     if "<" in description or ">" in description:
         errors.append(f"{where}/SKILL.md: description must not contain angle brackets")
+    for key, value in sorted(fields.items()):
+        if value[:1] not in ('"', "'", "|", ">") and (": " in value or " #" in value):
+            errors.append(f"{where}/SKILL.md: quote or reword {key}; YAML parsers reject an unquoted ': ' or ' #'")
     words = len(re.sub(r"```.*?```", "", body, flags=re.S).split())
     if words > BODY_WORD_BUDGET:
         errors.append(f"{where}/SKILL.md: body has {words} words; move detail to references (budget {BODY_WORD_BUDGET})")
