@@ -1,6 +1,6 @@
 ---
 name: ui-copy
-description: Write or review interface text such as labels, buttons, headings, field hints, empty states, errors, confirmations, tooltips, and onboarding messages. Use when building or changing a screen, component, or flow that shows text to users, even for a single label or message, and even when the request is about the interface rather than its words. Also use for the interface text of landing, pricing, and plan pages: headlines, plan cards, feature lists, and calls to action. Not for screen layout and component choice (ui-composition), documentation, or long-form prose (docs-writing, text-editing).
+description: Write or review interface text such as labels, buttons, headings, field hints, empty states, errors, confirmations, tooltips, and onboarding messages. Use when building or changing a screen, component, or flow that shows text to users, even for a single label or message, and even when the request is about the interface rather than its words. Also use for the interface text of landing, pricing, and plan pages, such as headlines, plan cards, feature lists, and calls to action. Not for screen layout and component choice (ui-composition), documentation, or long-form prose (docs-writing, text-editing).
 license: MIT
 ---
 
