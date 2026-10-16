@@ -60,7 +60,7 @@ The triage skills work in any GitHub repository and hand work to each other: a s
 
 Keep your preferred spelling, punctuation, and terminology in your project instructions rather than in the skills. To adapt a skill itself, edit its files under `skills/`.
 
-See [AGENTS.md](AGENTS.md) for how skills are written, [contributing](CONTRIBUTING.md) for checks, [external references](docs/references.md) for source guidance, and [licensing](docs/provenance.md) for attribution.
+See [AGENTS.md](AGENTS.md) for how skills are written, [contributing](CONTRIBUTING.md) for checks, [external references](docs/references.md), [which UI skills to load](docs/ui-skills.md) for source guidance, and [licensing](docs/provenance.md) for attribution.
 
 ## License
 
