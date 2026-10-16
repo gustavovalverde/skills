@@ -30,9 +30,13 @@ Two patterns explain most of the repetition:
 | `ui-composition` | this repository | Automatically, for any screen, component, form, or section |
 | `shadcn` | `shadcn-ui/ui` | Automatically in shadcn projects; it owns component and token conventions |
 | `vercel-react-best-practices` | `vercel-labs/agent-skills` | Automatically in React projects; it covers code, not appearance |
-| `better-accessibility` | `jakubkrehel/skills` | By name before merge, as the WCAG 2.2 A and AA gate |
-| `better-layout` | `jakubkrehel/skills` | By name, for responsive, zoom, and right-to-left checks |
-| `copywriting` | `coreyhaines31/marketingskills` | By name for a first landing-page draft, followed by the `ui-copy` deletion pass |
+| `better-accessibility` | `jakubkrehel/skills` | Automatically for accessibility work; run it before merge as the WCAG 2.2 A and AA gate |
+| `better-layout`, `better-colors` | `jakubkrehel/skills` | Automatically for responsive, zoom, right-to-left, palette, and contrast work |
+| `better-writing` | `jakubkrehel/skills` | Automatically beside `ui-copy`; it phrases the text `ui-copy` keeps and checks terminology and plurals |
+| `make-interfaces-feel-better`, `fixing-motion-performance` | `jakubkrehel/make-interfaces-feel-better`, `ibelick/ui-skills` | Automatically for polish and animation work; project motion tokens win over their example values |
+| `review-animations` | `emilkowalski/skills` | By name in Claude Code, automatically in Codex, as a motion review |
+| `frontend-design` | `anthropics/skills` | By name for a new brand or marketing surface, never for product screens; set `skillOverrides` to `user-invocable-only` in Claude Code, while Codex loads it automatically |
+| `copywriting` | `coreyhaines31/marketingskills` | Automatically for landing-page drafts, followed by the `ui-copy` deletion pass |
 
 `npx skills add -g` installs into `~/.agents/skills`, which Codex reads directly and Claude Code reads through a symlink in `~/.claude/skills`, so one install or removal reaches both agents.
 
@@ -43,7 +47,6 @@ In Claude Code, a skill in `~/.claude/skills` shadows a project skill with the s
 | Skill | Source | Reason |
 |---|---|---|
 | `ux-copy` | `anthropics/knowledge-work-plugins` | Requires an explanation on every message and three alternatives, the opposite of `ui-copy` |
-| `frontend-design` | `anthropics/skills` | Aims for a new visual identity and invents copy and placeholder content when a brief has none |
 | `web-design-guidelines` | `vercel-labs/agent-skills` | Requires Title Case, which is wrong for many languages, and fetches its rules from a main branch on every run |
 | `competitors`, `marketing-psychology` | `coreyhaines31/marketingskills` | Comparison pages and urgency tactics conflict with value-led, competitor-neutral copy |
 | Duplicate copies of a skill | plugins | A plugin copy and a standalone copy of the same skill load twice and can disagree |
