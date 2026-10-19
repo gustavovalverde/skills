@@ -6,16 +6,16 @@ license: MIT
 
 # Implement a change
 
-Understand the change and its consumers before choosing a solution, then land it completely. Each step ends with a check, so a skipped step shows in your report rather than in review.
+Understand the change and its consumers before choosing a solution, then land it completely. Each step ends with a check, so a skipped step shows before review.
 
 ## Approach
 
-1. **Map related work.** Read the request, its comments, and everything it links. Search open and closed issues and pull requests for the same behavior; one may already implement it. Read the repository's instructions for its compatibility stance and required checks, and load any installed skill that profiles the repository. Done when each related item has a relation (duplicate, sibling, blocker, or superseded) and the consumers are named: developers, users, and agents.
+1. **Map related work.** Read the request, its comments, and everything it links. Search open and closed issues and pull requests for the same behavior. Read the repository's instructions, and any installed skill that profiles it, for the compatibility stance and required checks. Done when each related item has a relation (duplicate, sibling, blocker, or superseded) and the consumers are named: developers, users, and agents.
 2. **Reproduce.** Write a test that sends the real request through the public surface, using the real client's payload or logs, in the runtime the behavior depends on. For a feature, write the acceptance test. Done when the test fails on the base branch, or the contract shows the behavior is intended.
-3. **Find the root cause and blast radius.** Fix the failure in the shared code where it goes wrong, so sibling callers are covered, and place the change where its reason lives. Prefer existing mechanism: a repository helper, the framework's primitive, the standard library or platform, then an installed dependency. When the fix belongs upstream, propose it there. Done when every caller, configuration variant, and touched contract, such as stored data, wire formats, and agent-facing schemas, is marked covered or out of scope with a reason.
-4. **Check prior art** when the change sets protocol behavior, a security property, a default, or a public API's shape. Done when each design choice cites a specification or precedent, or states none was found.
-5. **Classify release impact.** Ask whether existing outputs change, whether requests or configurations that worked now fail, and whether stored data needs a migration. Any yes is a breaking or minor change under the repository's release rules. Split a narrow fix from a breaking cleanup. Done when each answer is recorded and the version bump matches.
-6. **Design the public surface.** Use `software-design` when available for open boundaries, and `public-api-design` and `identifier-naming` when available for each new or changed option, endpoint, error, default, field, or exported name. Done when each public name is checked and the options left out are listed.
+3. **Find the root cause and blast radius.** Fix the shared code where the failure starts, so sibling callers are covered, and place the change where its reason lives. Prefer existing mechanism: a repository helper, the framework's primitive, the standard library or platform, then an installed dependency. When the fix belongs upstream, propose it there. Done when every caller, configuration variant, and touched contract, such as stored data, wire formats, and agent-facing schemas, is marked covered or out of scope with a reason.
+4. **Check prior art** when the change sets protocol behavior, a security property, a default, or a public API's shape. Verify the one fact the decision turns on against the specification or the real client's request. Use `prior-art-research` when available for a wider benchmark. Done when each design choice is recorded as copied, adapted, or rejected, with its source.
+5. **Classify release impact.** Ask whether existing outputs change, whether requests or configurations that worked now fail, and whether stored data needs a migration. Any yes needs a breaking or minor release under the repository's rules. Split a narrow fix from a breaking cleanup. Done when each answer is recorded and the version bump matches.
+6. **Design the public surface.** Use `software-design` when available for open boundaries, and `public-api-design` and `identifier-naming` when available for each new or changed public option, endpoint, error, default, or name. Done when each public name is checked and the options left out are listed.
 7. **Build test-first.** Make the reproduction pass, then revert the fix and confirm the test fails. Cover the variants from step 3. When compatibility is not required, remove obsolete paths and update every caller; when it is, provide the required migration. Done when the tests fail without the fix and pass with it, and the required checks pass.
 8. **Update documentation.** Find every page and example covering the changed behavior. Upgrade notes name the released versions affected. Done when each user-visible change has an updated page or a reason it needs none.
 
@@ -27,9 +27,8 @@ Understand the change and its consumers before choosing a solution, then land it
 
 ## Finish
 
-Read the full diff and revert every hunk that does not serve the change, including reworded comments and formatting. Record why each remaining workaround is needed, and file unrelated improvements as follow-ups. Report what changed, where each side effect was handled, the release impact and any break, upstream proposals, and anything unverified.
+Read the full diff and revert every hunk that does not serve the change, including reworded comments and formatting. Record why each remaining workaround is needed, and file unrelated improvements as follow-ups. Report the change, where each side effect was handled, the release impact, upstream proposals, and anything unverified.
 
 ## References
 
-- [Prior art](references/prior-art.md) for step 4.
-- [Decision examples](references/examples.md) for a tempting patch contrasted with the right change.
+- [Decision examples](references/examples.md) for tempting patches and the right change.
