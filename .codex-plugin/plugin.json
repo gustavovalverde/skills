@@ -1,6 +1,6 @@
 {
   "name": "steward",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Implement complete changes, research prior art, assess architecture and public API design, and write clear documentation, change descriptions, prose, and interface copy.",
   "author": {
     "name": "gustavovalverde"
