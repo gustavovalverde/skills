@@ -43,6 +43,7 @@ Each skill must work when installed alone.
 
 | From | To | When |
 |---|---|---|
+| `change-implementation` | `software-design` | The change still has open design decisions |
 | `software-design` | `public-api-design`, `codebase-structure`, `identifier-naming` | A decision concerns caller usage, placement, or vocabulary |
 | `software-design` | `docs-writing` | The user asks to record the decision as an ADR or proposal |
 | `codebase-structure` | `identifier-naming` | Ownership is settled and terminology is still disputed |

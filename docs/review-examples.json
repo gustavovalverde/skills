@@ -652,5 +652,57 @@
     "expected_skills": [
       "ui-copy"
     ]
+  },
+  {
+    "id": "impl_issue",
+    "request": "Implement issue #142 end to end.",
+    "facts": "The issue reports that sign-out leaves the session cookie set when the Redis store is used. Comments show a maintainer rejected a fix inside the Redis adapter because the memory and SQL stores share the same sign-out path. The repository is pre-1.0 with no compatibility obligations.",
+    "expected_skills": [
+      "change-implementation"
+    ]
+  },
+  {
+    "id": "impl_root_cause",
+    "request": "Fix this properly rather than patching the symptom: exporting an empty report crashes.",
+    "facts": "The crash comes from summarize(), which four report handlers call. The bug report suggests a guard in the export handler.",
+    "expected_skills": [
+      "change-implementation"
+    ]
+  },
+  {
+    "id": "impl_breaking_rename",
+    "request": "Replace createClient with connect across the library and remove the old API.",
+    "facts": "Pre-release library with no compatibility obligations. Tests, the README, and three examples call createClient.",
+    "expected_skills": [
+      "change-implementation"
+    ]
+  },
+  {
+    "id": "near_impl_design_only",
+    "request": "How should we approach replacing our polling sync with webhooks? Don't write code yet.",
+    "facts": "The sync worker polls every partner API each minute. Partners differ in webhook support.",
+    "expected_skills": [
+      "software-design"
+    ]
+  },
+  {
+    "id": "near_impl_constant",
+    "request": "Change the request timeout constant from 10 to 30 seconds.",
+    "facts": "One constant in src/http/config.ts. No other change requested.",
+    "expected_skills": []
+  },
+  {
+    "id": "api_agent_tools",
+    "request": "Design the tool schemas and error responses for our MCP server's search and create-ticket tools.",
+    "facts": "Coding agents call these tools without reading documentation first. create-ticket changes state.",
+    "expected_skills": [
+      "public-api-design"
+    ]
+  },
+  {
+    "id": "near_agent_prompt",
+    "request": "Write the system prompt for our customer support agent.",
+    "facts": "The agent answers billing questions and escalates refunds.",
+    "expected_skills": []
   }
 ]

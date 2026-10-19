@@ -26,6 +26,7 @@ Agents load a skill when your request matches it. You can also ask for one by na
 
 | Skill | Use it to | Example request |
 |---|---|---|
+| [change-implementation](skills/change-implementation/SKILL.md) | Implement an issue or fix as one complete change | “Implement issue #142 end to end. Read its discussion, list the side effects across callers and contracts, and remove the old path.” |
 | [software-design](skills/software-design/SKILL.md) | Plan a feature or refactor | “Plan this feature from common usage through ownership and module boundaries. Identify the first useful implementation slice.” |
 | [public-api-design](skills/public-api-design/SKILL.md) | Shape a developer-facing contract | “Review this SDK setup from the caller’s perspective. Simplify common usage while preserving compatibility.” |
 | [codebase-structure](skills/codebase-structure/SKILL.md) | Decide where code belongs | “Choose where this feature belongs and check which boundaries a file move must preserve.” |
@@ -50,7 +51,7 @@ Agents load a skill when your request matches it. You can also ask for one by na
 
 ## How they work together
 
-Each skill works on its own, so you can install only the ones you need. `software-design` handles decisions that span several concerns. When one question needs more depth, it hands the work to `public-api-design`, `codebase-structure`, or `identifier-naming`, passing along what it has already established, and to `docs-writing` when you want the decision recorded. `codebase-structure` and `identifier-naming` hand questions to each other: placement first, then names.
+Each skill works on its own, so you can install only the ones you need. `software-design` handles decisions that span several concerns. When one question needs more depth, it hands the work to `public-api-design`, `codebase-structure`, or `identifier-naming`, passing along what it has already established, and to `docs-writing` when you want the decision recorded. `codebase-structure` and `identifier-naming` hand questions to each other: placement first, then names. `change-implementation` carries a change from its issue to verified code, and hands open design decisions to `software-design`.
 
 The writing skills stay independent. Ordinary replies and small wording fixes need none of them.
 

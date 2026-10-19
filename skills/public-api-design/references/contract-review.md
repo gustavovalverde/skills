@@ -23,6 +23,20 @@ Prefer types or setup validation that reject invalid combinations before consequ
 
 For network operations, define retry eligibility and bounds against the actual operation and protocol. For deduplication, specify key scope, request matching, and retention when the contract provides them. For transaction helpers, state the atomicity boundary and who owns completion. Do not invent guarantees to make the example shorter.
 
+## Serve agent callers
+
+Agents call tools, CLIs, and HTTP APIs from what the surface declares about itself. They cannot read a tutorial first or ask what an ambiguous name means, so the declared surface must carry what a developer would otherwise learn from documentation.
+
+| Agent need | What to check |
+|---|---|
+| Selection | Does each operation's name and description say what it does, when to use it, and how it differs from similar operations? |
+| Input | Does the schema mark required fields, constrain values with enums and formats, and describe each field's meaning and units? |
+| Recovery | Does each error carry a stable code, the field or condition at fault, and the next valid action? |
+| Output | Is output structured, consistent between calls, and bounded in size, with pagination or truncation stated? |
+| Side effects | Does the surface state which operations change state, whether a retry is safe, and which actions cannot be undone? |
+
+An interface that serves agents well usually serves developers better too. When the two conflict, such as verbose descriptions in a compact CLI help screen, keep the human surface concise and put the detail in the machine-readable schema.
+
 ## Preserve compatibility
 
 Assess changes from an existing consumer's perspective: source compatibility, binary compatibility where applicable, serialized names, status and error behavior, defaults, ordering, and resource ownership. Fewer required arguments can still change behavior if a new default selects a different policy.
@@ -39,6 +53,7 @@ Select checks for the affected surface. Prefer existing tools and tests; a small
 | HTTP or RPC | Compare requests, responses, errors, and applicable metadata with the implementation and required protocol. |
 | Generated client | Generate from the actual schema and inspect or exercise the resulting caller interface. Handwritten types alone do not verify generation. |
 | CLI or configuration | Run representative commands or configuration loading; check defaults, invalid input, help, exit status, and output relied on by scripts. |
+| Agent tool or MCP server | List the declared tools and schemas as an agent receives them, then call each changed tool with valid input, invalid input, and a retry, and inspect the errors and output. |
 | Optional integration | Check enabled and disabled configurations when contracts vary. Keep required shared infrastructure distinct from accidental feature leakage. |
 | Behavioral change | Exercise the complete operation through the public surface, including relevant failure and cleanup paths. |
 | Migration | Exercise supported old usage and the proposed replacement where compatibility is claimed. |
