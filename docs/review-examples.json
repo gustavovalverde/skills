@@ -732,5 +732,13 @@
     "request": "What is the default timeout in Python's requests library?",
     "facts": "",
     "expected_skills": []
+  },
+  {
+    "id": "near_impl_greenfield",
+    "request": "Build a new billing service from scratch.",
+    "facts": "The repository is empty. The service must issue invoices and record payments from one payment provider. No language or framework has been chosen.",
+    "expected_skills": [
+      "software-design"
+    ]
   }
 ]
