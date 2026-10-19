@@ -44,6 +44,7 @@ Each skill must work when installed alone.
 | From | To | When |
 |---|---|---|
 | `change-implementation` | `software-design` | The change still has open design decisions |
+| `change-implementation` | `prior-art-research` | The change sets protocol behavior, a security property, a default, or a public API shape and needs a wider benchmark |
 | `change-implementation` | `public-api-design`, `identifier-naming` | The change adds or alters an option, endpoint, error, default, field, or exported name |
 | `software-design` | `public-api-design`, `codebase-structure`, `identifier-naming` | A decision concerns caller usage, placement, or vocabulary |
 | `software-design` | `docs-writing` | The user asks to record the decision as an ADR or proposal |
