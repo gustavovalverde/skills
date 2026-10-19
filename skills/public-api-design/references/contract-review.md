@@ -53,7 +53,7 @@ Select checks for the affected surface. Prefer existing tools and tests; a small
 | HTTP or RPC | Compare requests, responses, errors, and applicable metadata with the implementation and required protocol. |
 | Generated client | Generate from the actual schema and inspect or exercise the resulting caller interface. Handwritten types alone do not verify generation. |
 | CLI or configuration | Run representative commands or configuration loading; check defaults, invalid input, help, exit status, and output relied on by scripts. |
-| Agent tool or MCP server | List the declared tools and schemas as an agent receives them, then call each changed tool with valid input, invalid input, and a retry, and inspect the errors and output. |
+| Agent tool or MCP server | List the declared tools and schemas as an agent receives them. In a disposable environment, call each changed tool with valid and invalid input, and inspect the errors and output. Retry a call only when the tool declares that retries are safe, and confirm that the retry causes no further change. |
 | Optional integration | Check enabled and disabled configurations when contracts vary. Keep required shared infrastructure distinct from accidental feature leakage. |
 | Behavioral change | Exercise the complete operation through the public surface, including relevant failure and cleanup paths. |
 | Migration | Exercise supported old usage and the proposed replacement where compatibility is claimed. |
