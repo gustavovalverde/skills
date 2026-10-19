@@ -1,6 +1,6 @@
 ---
 name: public-api-design
-description: Design or review developer-facing contracts such as library APIs, SDKs, plugin and extension interfaces, HTTP endpoints, CLIs, configuration, and generated clients. Use when adding or changing a public surface, judging whether an API is easy to use correctly, or weighing a breaking change. Not for internal module boundaries with no outside consumers (software-design) or for writing endpoint documentation (docs-writing).
+description: Design or review developer-facing contracts such as library APIs, SDKs, plugin and extension interfaces, HTTP endpoints, CLIs, configuration, generated clients, and tools that agents call, such as MCP servers. Use when adding or changing a public surface, judging whether an API is easy to use correctly, or weighing a breaking change. Not for internal module boundaries with no outside consumers (software-design) or for writing endpoint documentation (docs-writing).
 license: MIT
 ---
 
@@ -11,6 +11,8 @@ Start from the developer's task and the contract they consume, and make the comm
 ## Approach
 
 Inspect representative callers, documentation, exported types, and relevant protocol or ecosystem conventions. Establish who depends on a surface before treating it as public; an internal export or database schema is not automatically one.
+
+Identify each kind of caller. Developers learn a surface from documentation, types, and examples. Agents choose an operation from its name, description, and schema alone, and act on its output without asking. The [agent caller checks](references/contract-review.md#serve-agent-callers) list what each needs.
 
 Write realistic common usage before choosing internal contracts. Include the setup and operation needed to complete the task, with inputs, results, and failure behavior. For an existing API, compare current and proposed usage. Label sketches as proposals rather than presenting invented calls as supported functionality.
 
@@ -25,6 +27,7 @@ Treat compatibility as part of the design. Account for existing consumers, wire 
 - Multiple entrypoints or a shared handle can be right when they represent independent tasks, transactions, or lifetimes.
 - A convenient default can change the contract. Retries, idempotency, and atomicity do not follow from a simpler interface.
 - Fewer required arguments can still change behavior when a new default selects a different policy.
+- Text that agents or scripts parse is part of the contract, including error messages, output fields, and exit statuses. Rewording it can break them.
 - A compiling snippet does not prove the API is easy to use. Keep inspected examples, executed checks, and usability evidence distinct.
 
 ## Finish

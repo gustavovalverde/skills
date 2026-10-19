@@ -1,0 +1,4 @@
+interface:
+  display_name: "Change Implementation"
+  short_description: "Implement issues and fixes as complete changes"
+  default_prompt: "Use $change-implementation to implement this issue end to end, including its side effects across callers and contracts."
