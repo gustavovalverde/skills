@@ -51,7 +51,7 @@ Agents load a skill when your request matches it. You can also ask for one by na
 
 ## How they work together
 
-Each skill works on its own, so you can install only the ones you need. `software-design` handles decisions that span several concerns. When one question needs more depth, it hands the work to `public-api-design`, `codebase-structure`, or `identifier-naming`, passing along what it has already established, and to `docs-writing` when you want the decision recorded. `codebase-structure` and `identifier-naming` hand questions to each other: placement first, then names. `change-implementation` carries a change from its issue to verified code, and hands open design decisions to `software-design`.
+Each skill works on its own, so you can install only the ones you need. `software-design` handles decisions that span several concerns. When one question needs more depth, it hands the work to `public-api-design`, `codebase-structure`, or `identifier-naming`, passing along what it has already established, and to `docs-writing` when you want the decision recorded. `codebase-structure` and `identifier-naming` hand questions to each other: placement first, then names. `change-implementation` carries a change from its issue to verified code. It hands open design decisions to `software-design`, and new or changed public names to `public-api-design` and `identifier-naming`.
 
 The writing skills stay independent. Ordinary replies and small wording fixes need none of them.
 

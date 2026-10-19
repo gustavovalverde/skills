@@ -1,5 +1,17 @@
 # Decision examples
 
+## Reproduce with the client's real request
+
+A bug report says sign-in through a partner's identity provider fails with "invalid request". The tempting reproduction builds a request from the report's description, which passes, so the bug looks unreproducible.
+
+Ask for or find the provider's actual request, such as its documented sample payload or the reporter's logs. The real request sends a parameter in a form the description never mentioned, and the test built from it fails on the base branch. A test built from prose tests your reading of the report, not the client.
+
+## Split a narrow fix from a breaking cleanup
+
+A fix for duplicate webhook deliveries also renames the delivery status values and changes their stored form. The tempting change ships both together because they touch the same code.
+
+Answer the release-impact questions for each part. The duplicate fix changes no outputs and needs no migration, so it ships as a patch. The rename changes stored values and response shapes, so it goes in its own change under the repository's rules for breaking changes. Users then get the fix without waiting for the migration.
+
 ## Fix the shared function, not the reported path
 
 An issue reports that exporting an empty report crashes, and suggests a guard in the export handler. Three other handlers call the same `summarize()` function, which fails on an empty list.

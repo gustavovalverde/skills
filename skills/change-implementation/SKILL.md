@@ -6,30 +6,30 @@ license: MIT
 
 # Implement a change
 
-Understand the change and its consumers before choosing a solution, then land it completely. The patterns a change sets get copied, so the touched area should end simpler than it started.
+Understand the change and its consumers before choosing a solution, then land it completely. Each step ends with a check, so a skipped step shows in your report rather than in review.
 
 ## Approach
 
-1. **Establish the change.** Read the request or issue in full, with its comments, linked and competing pull requests, review threads, and earlier attempts or reverts. A report names a symptom, and its discussion often holds rejected approaches and constraints. Restate the problem, the outcome, and the acceptance criteria.
-2. **Establish the obligations.** Read the repository's instructions for its compatibility stance, release status, and required checks. Identify the consumers: developers who integrate the code, people who use the product, and agents that call its APIs, tools, or CLIs. When an installed skill profiles this repository's contracts, load it; it refines these defaults.
-3. **Understand the code.** Read the code the change touches, its callers, its tests, and the contracts of the frameworks and libraries it relies on. Look for existing mechanism in this order: a helper or pattern in the repository, the framework's intended primitive or extension point, the standard library or platform, and an installed dependency. When the right fix belongs upstream, propose it there alongside any interim local change.
-4. **Settle open decisions.** When the design is still open, use `software-design` when available, passing the problem, the consumers, and the compatibility stance. It hands contract, placement, and naming questions to its focused siblings. A change that fits the existing design goes straight to implementation.
-5. **List side effects before editing.** Check callers, stored data and migrations, wire formats and generated clients, configuration, documentation and examples, tests, observability, and the contracts agents rely on, such as tool schemas, error codes, and command output. A change that is correct locally usually breaks in one of these places.
-6. **Implement end to end.** Fix the root cause where every caller routes through it. When compatibility is not required, remove the obsolete paths, shims, and configuration, and update every caller in the same change. When it is required, provide the migration path the stance calls for. Update affected tests, documentation, and examples together with the code.
+1. **Map related work.** Read the request, its comments, and everything it links. Search open and closed issues and pull requests for the same behavior; one may already implement it. Read the repository's instructions for its compatibility stance and required checks, and load any installed skill that profiles the repository. Done when each related item has a relation (duplicate, sibling, blocker, or superseded) and the consumers are named: developers, users, and agents.
+2. **Reproduce.** Write a test that sends the real request through the public surface, using the real client's payload or logs, in the runtime the behavior depends on. For a feature, write the acceptance test. Done when the test fails on the base branch, or the contract shows the behavior is intended.
+3. **Find the root cause and blast radius.** Fix the failure in the shared code where it goes wrong, so sibling callers are covered, and place the change where its reason lives. Prefer existing mechanism: a repository helper, the framework's primitive, the standard library or platform, then an installed dependency. When the fix belongs upstream, propose it there. Done when every caller, configuration variant, and touched contract, such as stored data, wire formats, and agent-facing schemas, is marked covered or out of scope with a reason.
+4. **Check prior art** when the change sets protocol behavior, a security property, a default, or a public API's shape. Done when each design choice cites a specification or precedent, or states none was found.
+5. **Classify release impact.** Ask whether existing outputs change, whether requests or configurations that worked now fail, and whether stored data needs a migration. Any yes is a breaking or minor change under the repository's release rules. Split a narrow fix from a breaking cleanup. Done when each answer is recorded and the version bump matches.
+6. **Design the public surface.** Use `software-design` when available for open boundaries, and `public-api-design` and `identifier-naming` when available for each new or changed option, endpoint, error, default, field, or exported name. Done when each public name is checked and the options left out are listed.
+7. **Build test-first.** Make the reproduction pass, then revert the fix and confirm the test fails. Cover the variants from step 3. When compatibility is not required, remove obsolete paths and update every caller; when it is, provide the required migration. Done when the tests fail without the fix and pass with it, and the required checks pass.
+8. **Update documentation.** Find every page and example covering the changed behavior. Upgrade notes name the released versions affected. Done when each user-visible change has an updated page or a reason it needs none.
 
 ## Gotchas
 
-- An issue's proposed fix is a hypothesis. Maintainer comments may have narrowed or redirected it.
-- A nearby precedent can itself be wrong. Check it against the contract before copying it.
-- Permission to break compatibility removes the obligation to support old callers. It does not remove the obligation to update the callers in this repository and to state the break.
-- Ask the user only about decisions that are theirs, such as compatibility stance, scope, and product behavior. Look up facts in the code, history, and documentation.
-- Improve the area the change touches. Record unrelated improvements as follow-ups rather than widening the diff.
-- Passing tests in the default configuration do not cover the other adapters, platforms, or concurrent callers the change affects.
+- An issue's proposed fix is a hypothesis. Maintainer comments may have redirected it.
+- A nearby precedent can be wrong. Check it against the contract before copying it.
+- Ask the user only about their decisions, such as compatibility stance, scope, and product behavior. Research facts.
 
 ## Finish
 
-Review the diff for simplification before calling it done: duplicated mechanism, abstractions with one use, leftover compatibility code, and unclear names. Run the repository's required checks and the tests for the changed behavior, including failure paths. Report what changed and why, each side effect and where it was handled, breaking changes with their migration, any upstream proposal, and anything left unverified.
+Read the full diff and revert every hunk that does not serve the change, including reworded comments and formatting. Record why each remaining workaround is needed, and file unrelated improvements as follow-ups. Report what changed, where each side effect was handled, the release impact and any break, upstream proposals, and anything unverified.
 
 ## References
 
-- [Decision examples](references/examples.md) when choosing between a local patch and a root-cause, framework, or breaking change.
+- [Prior art](references/prior-art.md) for step 4.
+- [Decision examples](references/examples.md) for a tempting patch contrasted with the right change.
