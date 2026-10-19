@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prior Art Research"
+  short_description: "Benchmark specs and implementations before deciding"
+  default_prompt: "Use $prior-art-research to find how specifications and other implementations handle this behavior before we decide."

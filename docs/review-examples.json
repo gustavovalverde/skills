@@ -706,6 +706,34 @@
     "expected_skills": []
   },
   {
+    "id": "prior_art_default",
+    "request": "Before we pick a default access token lifetime, find out what the specs and comparable authorization servers do.",
+    "facts": "The project is an OAuth authorization server library. No default exists yet.",
+    "expected_skills": [
+      "prior-art-research"
+    ]
+  },
+  {
+    "id": "prior_art_client_behavior",
+    "request": "Do identity providers really re-send a create request for a user they deactivated? Get evidence before we design the provisioning handler.",
+    "facts": "The handler currently rejects duplicate creates with a conflict error. A reporter claims one provider re-sends them.",
+    "expected_skills": [
+      "prior-art-research"
+    ]
+  },
+  {
+    "id": "near_prior_market",
+    "request": "Write a report comparing the top five hosted auth vendors' pricing and positioning.",
+    "facts": "For a planning meeting next week.",
+    "expected_skills": []
+  },
+  {
+    "id": "near_prior_lookup",
+    "request": "What is the default timeout in Python's requests library?",
+    "facts": "",
+    "expected_skills": []
+  },
+  {
     "id": "near_impl_greenfield",
     "request": "Build a new billing service from scratch.",
     "facts": "The repository is empty. The service must issue invoices and record payments from one payment provider. No language or framework has been chosen.",
