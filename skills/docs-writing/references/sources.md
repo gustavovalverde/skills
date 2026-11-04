@@ -3,7 +3,7 @@
 These sources support the guidance; consult them when a task calls for attribution or deeper comparison. Routine drafting does not require fetching every source.
 
 - [Diátaxis compass](https://diataxis.fr/compass/): choose documentation form by the reader's need to learn, act, look up, or understand.
-- [Diátaxis how-to guides](https://diataxis.fr/how-to-guides/): organize around a practical user goal and keep unrelated explanation separate.
+- [Diátaxis how-to guides](https://diataxis.fr/how-to-guides/): organize around a practical user goal, phrase steps as conditional imperatives such as "If you want x, do y," and keep unrelated explanation separate.
 - [Mintlify writing standards](https://github.com/mintlify/docs/blob/main/skill.md#writing-standards): direct language, prerequisites, useful examples, and removal of filler. Platform configuration and component requirements are outside this writing guidance.
 - [Google developer documentation style highlights](https://developers.google.com/style/highlights): conditions before instructions, accessible language, descriptive links, and appropriate formatting.
 - [ASD-STE100 overview](https://www.asd-ste100.org/about_STE.html): Simplified Technical English is a controlled language with writing rules and a dictionary. The official overview identifies Issue 9 (January 2025). Plain English documentation is not automatically STE-compliant. Apply the full standard only when requested and when the applicable official material is available.
