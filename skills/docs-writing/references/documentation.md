@@ -12,6 +12,12 @@ The completion check is whether a newcomer with the stated prerequisites can rea
 
 Name the user's goal and required starting conditions. Present actions in usable order, including necessary branches and recovery steps. Put a condition before the instruction it changes. Use numbered steps for a sequence; each step should be easy to act on and check. Related steps do not need to become one long sentence.
 
+Phrase a task as "if you want x, do y": the reader's goal, then the setting that achieves it, then the consequence. For example, these two sentences lead into a list of what the server then exposes:
+
+> To open the development server from your phone, set `host: "0.0.0.0"`. Anyone who can reach your machine can then open the app:
+
+The reason for a rule that is not obvious fits in one sentence: "Exact matching keeps an attacker from redirecting the authorization code to a URI the client did not register."
+
 Describe actual outcomes rather than vague directions such as "configure appropriately." Include the result that confirms success. Keep reference catalogs and extended explanations elsewhere, with links when useful. Preserve necessary judgment calls instead of inventing a universally safe sequence.
 
 For example, a token-rotation guide must establish whether concurrent old and new tokens are supported before recommending an overlap. If that behavior is unknown, identify the missing fact rather than fabricating a procedure.
@@ -20,7 +26,7 @@ The completion check is whether a competent reader can achieve the stated goal u
 
 ## Reference: find a fact
 
-Use stable names, consistent fields, and predictable ordering. For a configuration option, document its meaning, accepted values, default, constraints, and interactions when known. Distinguish an omitted value from an explicit value when behavior differs. Use tables for comparable fields and examples where they clarify the contract.
+Use stable names, consistent fields, and predictable ordering. For a configuration option, document its meaning, accepted values, default, constraints, and interactions when known. Distinguish an omitted value from an explicit value when behavior differs. When a how-to leaves an exception to the reference entry, the entry must state it. Use tables for comparable fields and examples where they clarify the contract.
 
 Reference can be terse without becoming cryptic. It does not need a narrative introduction or transitions between independent entries. Link to instructions and explanations instead of embedding a lesson in every field.
 

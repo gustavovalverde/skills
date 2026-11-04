@@ -18,9 +18,11 @@ Read the reference for the form:
 
 Check existing documentation before adding a page, and update or link useful material instead of duplicating it. Match the reader's knowledge and the project's terminology. Before a section relies on a concept, establish whether the reader already knows it or needs an explanation.
 
-Keep prerequisites before dependent actions and qualifications beside the claims they constrain. Choose the smallest representation that answers the reader's question: prose for reasoning, a table for comparable options, a sequence for ordering, or a shallow tree for responsibility. Show a focused diff when the surrounding shape is familiar, and the complete example when omitted context would hide ownership, order, or a usable result. Place a visual beside the explanation it supports.
+Keep prerequisites before dependent actions. Choose the smallest representation that answers the reader's question: prose for reasoning, a table for comparable options, a sequence for ordering, or a shallow tree for responsibility. Show a focused diff when the surrounding shape is familiar, and the complete example when omitted context would hide ownership, order, or a usable result. Place a visual beside the explanation it supports.
 
 Write sentences that a reader who is not a native English speaker can follow on the first pass. Give each sentence one idea and name who acts, as in "your proxy sets the header." When a claim has several conditions, list them under the claim.
+
+Address the reader as "you." Let the main explanation state the default path. Keep a condition that decides whether an instruction is safe beside that instruction. Put other exceptions after the main point, or in the reference entry when one exists. When a reviewer or review bot asks for another qualification, place it by these rules instead of adding it to the main sentence. Where a rule is not obvious, add one sentence of why that the source or specification supports. Never invent a reason.
 
 ## Gotchas
 
@@ -28,9 +30,19 @@ Write sentences that a reader who is not a native English speaker can follow on 
 - An inspected example is not an executed one. Say which you have.
 - Supported behavior, proposals, and unknowns read alike unless they are labeled.
 - Shortening can drop exact identifiers, version limits, and supporting evidence. Keep them, and explain unfamiliar concepts without weakening their technical meaning.
+- Code format only what a reader types or searches for, not plain words, HTTP methods, or status codes. Refer back to an introduced identifier with a plain noun, such as "the client."
 - Merging sentences to shorten a passage turns its conditions into asides that the reader must hold open. Remove repeated or unneeded sentences instead.
 - Drafting history and unrelated internal process details do not help the reader.
 
 ## Finish
 
 Check whether readers can complete the task, locate the fact, or assess the decision. Verify examples and links within the available environment, and report material limits. After revising for review comments, reread each changed sentence as a reader new to the topic would. Leave the rest of the documentation set alone during a narrow edit.
+
+Rewording for voice can change a claim. Compare each reworded sentence with the original for these shifts:
+
+- "unless X" that became "only X"
+- a dropped "by default"
+- a lead-in sentence that no longer matches the list or code after it
+- "you" that now means an end user or API caller instead of the reader
+- an instruction that tells the reader to do what the system already does
+- a goal the setting only partly achieves, with its limit moved away from the instruction
