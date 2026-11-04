@@ -16,7 +16,7 @@ Phrase a task as "if you want x, do y": the reader's goal, then the setting that
 
 > To open the development server from your phone, set `host: "0.0.0.0"`. Anyone who can reach your machine can then open the app:
 
-The reason for a rule that is not obvious fits in one sentence: "Exact matching keeps an attacker from redirecting the authorization code to a URI the client did not register."
+The reason for a rule that is not obvious fits in one sentence after the rule: "Sessions end after 30 minutes without activity. This limits how long someone else can use a computer you left signed in."
 
 Describe actual outcomes rather than vague directions such as "configure appropriately." Include the result that confirms success. Keep reference catalogs and extended explanations elsewhere, with links when useful. Preserve necessary judgment calls instead of inventing a universally safe sequence.
 
