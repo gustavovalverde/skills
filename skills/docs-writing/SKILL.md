@@ -38,4 +38,4 @@ Address the reader as "you." Let the main explanation state the default path. Ke
 
 Check whether readers can complete the task, locate the fact, or assess the decision. Verify examples and links within the available environment, preview rendered pages at phone width, and report material limits. A check that reports zero files checked did not pass. After revising for review comments, reread each changed sentence as a reader new to the topic would. Leave the rest of the documentation set alone during a narrow edit.
 
-Rewording for voice can change a claim. Compare each reworded sentence with the original for the shifts listed in [documentation forms](references/documentation.md).
+Rewording for voice can change a claim, and so can an added fix or example. Compare each reworded sentence with the original, and each addition with the source, for the shifts listed in [documentation forms](references/documentation.md).

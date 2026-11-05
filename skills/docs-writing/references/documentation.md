@@ -52,10 +52,6 @@ These patterns let readers check their own case: who acts next, which option fit
 
 > The server responds with a `url`. The browser SDK sends the user there for you. If you call the endpoint without the SDK, redirect the browser to `url` yourself.
 
-**Recommend first, then state each option's cost.**
-
-> Keep retries on. If your receiver cannot handle a repeated event, set `retries: 0`. With retries off, an event lost to a timeout is never delivered.
-
 **Introduce a variant by the condition that selects it.** Start from what the reader already has:
 
 > If you have the user's email, pass `email`. If you have only their team, pass `teamId`.
@@ -70,7 +66,7 @@ These patterns let readers check their own case: who acts next, which option fit
 
 **Open a section about a safeguard with what it prevents.** A reader who knows the threat can judge what weakening the safeguard costs:
 
-> Signature verification stops anyone without the signing secret from sending you forged events.
+> Signature verification rejects forged events from anyone who lacks the signing secret.
 
 **Give each error its cause and its fix.** When a fix relaxes a safeguard, state the condition that makes it safe first:
 
@@ -88,7 +84,7 @@ timeout: 30_000, // 30 seconds, in milliseconds
 
 ## Check a revision
 
-Compare each reworded sentence with the original for these shifts:
+Compare each reworded sentence with the original, and each added sentence, fix, or example with the source, for these shifts:
 
 - "unless X" that became "only X"
 - a dropped "by default"
@@ -98,4 +94,4 @@ Compare each reworded sentence with the original for these shifts:
 - a goal the setting only partly achieves, with its limit moved away from the instruction
 - an absolute word, such as "always," "never," or "only," where the source has an exception
 - a claim scoped wider or narrower than the implementation, such as a check described as always running when it runs only if its option is set
-- an example value that works on one code path and breaks another
+- an example value or fix that works in one case and fails in another
