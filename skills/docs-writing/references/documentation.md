@@ -54,7 +54,7 @@ These patterns let readers check their own case: who acts next, which option fit
 
 **Recommend first, then state each option's cost.**
 
-> Keep retries on unless your receiver cannot handle a repeated event. With retries off, an event lost to a timeout is never delivered.
+> Keep retries on. If your receiver cannot handle a repeated event, set `retries: 0`. With retries off, an event lost to a timeout is never delivered.
 
 **Introduce a variant by the condition that selects it.** Start from what the reader already has:
 
