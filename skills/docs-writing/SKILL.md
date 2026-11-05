@@ -12,7 +12,7 @@ Choose the form by the reader's task, not the publishing platform, and ground ev
 
 Read the reference for the form:
 
-- [Documentation forms](references/documentation.md) for tutorials, how-to guides, reference pages, and explanations.
+- [Documentation forms](references/documentation.md) for tutorials, how-to guides, reference pages, and explanations, and for shaping a section within any of them.
 - [Decision records](references/decisions.md) for proposals, RFCs, and ADRs.
 - [Visual content](references/visual-content.md) for slide copy and text that accompanies charts or diagrams. Presentation and design tools handle layout and rendering.
 
@@ -20,7 +20,7 @@ Check existing documentation before adding a page, and update or link useful mat
 
 Keep prerequisites before dependent actions. Choose the smallest representation that answers the reader's question: prose for reasoning, a table for comparable options, a sequence for ordering, or a shallow tree for responsibility. Show a focused diff when the surrounding shape is familiar, and the complete example when omitted context would hide ownership, order, or a usable result. Place a visual beside the explanation it supports.
 
-Write sentences that a reader who is not a native English speaker can follow on the first pass. Give each sentence one idea and name who acts, as in "your proxy sets the header." When a claim has several conditions, list them under the claim.
+Write sentences that a reader who is not a native English speaker can follow on the first pass. Give each sentence one idea and name who acts, as in "your proxy sets the header." Put an effect in its own sentence instead of a ", so" clause. When a claim has several conditions, list them under the claim.
 
 Address the reader as "you." Let the main explanation state the default path. Keep a condition that decides whether an instruction is safe beside that instruction. Put other exceptions after the main point, or in the reference entry when one exists. When a reviewer or review bot asks for another qualification, place it by these rules instead of adding it to the main sentence. Where a rule is not obvious, add one sentence of why that the source or specification supports. Never invent a reason.
 
@@ -36,13 +36,6 @@ Address the reader as "you." Let the main explanation state the default path. Ke
 
 ## Finish
 
-Check whether readers can complete the task, locate the fact, or assess the decision. Verify examples and links within the available environment, and report material limits. After revising for review comments, reread each changed sentence as a reader new to the topic would. Leave the rest of the documentation set alone during a narrow edit.
+Check whether readers can complete the task, locate the fact, or assess the decision. Verify examples and links within the available environment, preview rendered pages at phone width, and report material limits. A check that reports zero files checked did not pass. After revising for review comments, reread each changed sentence as a reader new to the topic would. Leave the rest of the documentation set alone during a narrow edit.
 
-Rewording for voice can change a claim. Compare each reworded sentence with the original for these shifts:
-
-- "unless X" that became "only X"
-- a dropped "by default"
-- a lead-in sentence that no longer matches the list or code after it
-- "you" that now means an end user or API caller instead of the reader
-- an instruction that tells the reader to do what the system already does
-- a goal the setting only partly achieves, with its limit moved away from the instruction
+Rewording for voice can change a claim. Compare each reworded sentence with the original for the shifts listed in [documentation forms](references/documentation.md).
