@@ -46,6 +46,39 @@ Run inside a Claude Code session:
 
 Start a fresh session and invoke a skill, such as `/steward:software-design` or `/steward:docs-writing`. See the [README](../README.md#skills) for the full selection.
 
+## Check pull request bodies in Claude Code
+
+`pr-writing` includes an optional Claude Code hook. The hook checks the title and body before `gh pr create` or `gh pr edit` runs, and blocks the command when they exceed the skill's limits. It is off until you add it to your settings.
+
+Add this entry to `~/.claude/settings.json`. The path assumes a user-level install with the skills CLI; change it if your copy of the skill is elsewhere:
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$HOME/.claude/skills/pr-writing/scripts/gh-pr-hook.mjs\""
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+With the hook on:
+
+- The agent must pass the body with `--body-file`, from a file written in an earlier step. The hook blocks an inline `--body`, because it cannot read one.
+- A blocked command shows the limit it broke, such as the word count or the title length.
+- To allow a longer body for one command, prefix it with `PR_BODY_MAX_WORDS=600`.
+- To add your own reminder to every allowed command, append `--note "your text"` to the hook command.
+
+The hook needs Node.js 20 or later. It ignores commands that post no body, and it never blocks a command when the hook itself fails.
+
 ## Earlier plugin name
 
 The plugin was previously named `skills`. Claude Code moves existing installs to `steward` on the next marketplace sync. In Codex, remove the old plugin and add the new one:
