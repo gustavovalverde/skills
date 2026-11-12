@@ -6,31 +6,32 @@ license: MIT
 
 # Write a pull request
 
-Write for the reviewer deciding whether to approve: what changes and why, what to check, and what could go wrong. Leave out everything else; a reviewer who needs more will ask.
+Write for the reviewer deciding whether to approve: what changes and why, what to check, and what could go wrong. Leave out the rest; a reviewer who needs more will ask.
 
 ## Approach
 
-1. **Find the structure.** When the repository has a template or contribution guide, such as `.github/pull_request_template.md`, `.github/PULL_REQUEST_TEMPLATE/`, `CONTRIBUTING.md`, or `AGENTS.md`, write only its sections and follow its title convention. When it has none, use [the default structure](references/structure.md), which also covers link lines, superseded and stacked PRs, and how these rules map onto a template's sections.
-2. **Title the behavior a reviewer approves**, in about 60 characters or fewer. If one title cannot cover the change, split the PR. In a stack, each title and body covers only its own layer.
-3. **Summarize in at most three sentences or four short bullets.** Start with the problem a user or caller sees, then the behavior after the change, for a reader who never opened the code. Leave function names and mechanism to reviewer notes.
-4. **Add reviewer notes only for what the diff cannot show:** a design choice a reviewer would otherwise question, with the constraint that forced it; what users must do after the change; what the PR deliberately leaves unchanged; or the specification it follows. Use a visual only when it shows something faster than prose; [representations](references/representations.md) lists the shapes.
-5. **Show evidence a reviewer can check:** a test that failed without the change and passes with it, real output, or a screenshot for a visual change. Claim only what the evidence shows. Build file and line links with [the permalink script](scripts/permalink.py). When the change follows an external fact, see [citing sources](references/citations.md).
-6. **State the merge danger:** whether a revert fully undoes the change, and what a defect would affect.
-
-The body grows with the change only in reviewer notes and evidence. The title and Summary stay short for every PR.
+1. **Find the structure.** When the repository has a pull request template, write only its sections. A contribution guide without a template gives requirements, not sections: meet them inside the shape below. Follow the repository's title convention.
+2. **Size the body to the change.** When the diff shows the whole change, write the link lines and one paragraph without headings, about 100 words: the problem, the new behavior, and the test or output that shows it. Use the headed sections of [the default structure](references/structure.md) only when the change needs reviewer notes, and stay under 400 words outside code blocks. It also covers link lines, superseded and stacked PRs, and templates.
+3. **Title one behavior a reviewer approves**, in 72 characters or fewer, prefix included. If it needs "and", consider splitting the PR. In a stack, each title and body covers only its own layer.
+4. **Summarize in at most three sentences.** State the problem a user or caller sees, then the behavior after the change, for a reader who never opened the code. Mechanism belongs in reviewer notes.
+5. **Add a reviewer note only for a question the reviewer would otherwise ask in a review comment:** why this design, with the constraint that forced it; what users must do after the change; what the PR deliberately leaves unchanged; or which specification it follows. Three usually suffice. Use a visual only when it shows something faster than prose; [representations](references/representations.md) lists the shapes.
+6. **Give one before and after a reviewer can check:** a failing test that now passes, real output, or a screenshot. Say a test failed without the change only when you saw it fail. Build file links with [the permalink script](scripts/permalink.py), and cite external facts as in [citing sources](references/citations.md).
+7. **State the merge danger only when it is not obvious:** a revert does not fully undo the change, the change becomes a public contract on release, or a defect would reach further than the diff suggests.
+8. **Check the limits** with `node scripts/check-body.mjs BODY.md --title "..."`.
 
 ## Gotchas
 
-- The working session does not belong in the body: the user's instructions, options discussed and rejected, how a decision was reached, commands tried or checks repeated, and earlier review rounds. Evidence keeps only the checkable result. Keep a rationale only when a reviewer would otherwise question the choice, and state it as the constraint.
+- The working session stays out of the body: the user's instructions, options discussed and rejected, how a decision was reached, commands tried, and earlier review rounds. Keep a rationale only when a reviewer would otherwise question the choice, and state it as the constraint.
+- Evidence is a result, not a test plan. Lists of test files, test counts, or commands restate the diff and CI.
 - Give one reason per decision. Name a rejected alternative only when a reviewer is likely to propose it.
-- Say each point once. A visual replaces the prose it illustrates, reviewer notes do not repeat the Summary, and the body does not repeat a bot-generated summary.
-- Keep the tone proportionate to the impact. State a security exposure plainly, without alarm.
+- Say each point once. A visual replaces the prose it illustrates, and reviewer notes do not repeat the Summary, the diff, or a bot-generated summary.
+- State a security exposure plainly, without alarm.
 - Breaking behavior, required migrations, and unresolved risks stay visible, never collapsed.
-- Fill a required template truthfully and leave unmet items unchecked. Delete an empty section instead of writing "None" or "N/A". Leave out checks that CI already reports.
-- When the PR changes, rewrite the affected section to match the final diff instead of appending to it. A fix for a review comment belongs in a reply on that thread; it changes the body only when it changes what the PR does or what its evidence shows.
+- Fill a required template truthfully and leave unmet items unchecked.
+- When the PR changes, rewrite the affected section to match the final diff instead of appending. A fix for a review comment belongs in a reply on that thread, and changes the body only when it changes what the PR does.
 
 ## Finish
 
-Read each sentence and ask whether the reviewer would miss it when deciding to approve. Delete it if not. Then check that the title and body match the final diff and stand alone.
+Delete each sentence the reviewer would not miss when deciding to approve. Then check that the title and body match the final diff and stand alone.
 
-For commit messages, changesets, or release notes, use [change artifacts](references/change-artifacts.md). Their readers are users and maintainers.
+For commit messages, changesets, or release notes, use [change artifacts](references/change-artifacts.md).
