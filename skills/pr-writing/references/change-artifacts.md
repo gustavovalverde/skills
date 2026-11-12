@@ -12,6 +12,8 @@ For example:
 
 > Retrying a failed CSV export now starts a new attempt. Previously, the export remained marked as failed and could not be retried.
 
+Keep an entry to one or two sentences, plus one for a required action such as running a migration. Release tooling often uses the first sentence as the headline, so make it stand alone. Leave out design choices, rejected alternatives, and test descriptions; those belong to reviewers. When the PR's scope changes, rewrite the entry to match the final behavior.
+
 Internal-only refactors may need no entry; follow the repository's release policy. A developer-facing release note can include implementation details when they change an integration contract. Preserve uncertainty rather than promising an unverified outcome.
 
 ## Make the symptom concrete
