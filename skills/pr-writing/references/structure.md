@@ -52,7 +52,7 @@ Related to #790: changes the same function and needs a rebase onto this PR
 
 - `Fixes` resolves an issue. Use the closing keyword the platform recognizes.
 - `Part of` partly resolves an issue. Say which part.
-- `Closes #N: <reason>` supersedes another PR, with the reason in one line. Credit the original author when this PR reuses their work. GitHub does not close a pull request through a keyword, so the replaced PR must be closed by hand. Tell whoever asked for the description, and close it only when they ask you to.
+- `Closes #N: <reason>` supersedes another PR, with the reason in one line. Credit the original author when this PR reuses their work. GitHub closes the replaced PR when this one merges into the default branch. A PR that merges into another branch leaves it open, so tell whoever asked for the description that it needs closing by hand.
 - `Depends on` marks a stacked PR. Say which commits to review. Remove the line when the base merges.
 - `Related to #N: <how>` is for any other issue or PR that affects review or landing order, such as one that must rebase onto this change.
 
